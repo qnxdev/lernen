@@ -22,7 +22,7 @@ export default function Home() {
 
       <Page>
         <div className="bundles">
-          <div className="head">
+          <div className="head flex">
             <h4>Bundles</h4>
             <p>Learn a set of technologies..</p>
           </div>
@@ -34,7 +34,7 @@ export default function Home() {
                   style={{ border: "2px solid #000" }}
                   className="item"
                 >
-                  <h1>{item.title}</h1>
+                  <h2>{item.title}</h2>
                   <Button>Select</Button>
                 </div>
               );

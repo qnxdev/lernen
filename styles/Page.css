@@ -2,6 +2,12 @@
   color: #0070f3;
 }
 
-header{
-  padding: 0 20px;
+header {
+  padding: 10px 20px;
+}
+header h1 {
+  margin: 0;
+}
+footer {
+  text-align: center;
 }
