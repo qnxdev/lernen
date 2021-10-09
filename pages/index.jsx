@@ -7,9 +7,9 @@ import Page from "../components/Page";
 
 export default function Home() {
   const bundles = [
-    { id: 1, title: "React + CSS + Firebase" },
-    { id: 2, title: "NextJS + CSS + MongoDB" },
-    { id: 3, title: "NextJS + CSS + Firebase" },
+    { id: 1, title: "React + CSS + Firebase", bg:"326deg, #a4508b 0%, #5f0a87 74%" },
+    { id: 2, title: "NextJS + CSS + MongoDB", bg:"315deg, #20bf55 0%, #01baef 74%" },
+    { id: 3, title: "NextJS + CSS + Firebase",  bg:"315deg, #0cbaba 0%, #380036 74%" },
   ];
 
   return (
@@ -31,10 +31,11 @@ export default function Home() {
               return (
                 <div
                   key={item.id}
-                  style={{ border: "2px solid #000" }}
+                  style={{ backgroundImage: `linear-gradient(${item.bg})` }}
                   className="item"
+                  
                 >
-                  <h2>{item.title}</h2>
+                  <h1>{item.title}</h1>
                   <Button>Select</Button>
                 </div>
               );
