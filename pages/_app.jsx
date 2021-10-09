@@ -3,8 +3,8 @@ import '../styles/Home.css'
 
 /*Main App File - This is not a page*/
 
-function MyApp({ Component, pageProps }) {
+function Lernen({ Component, pageProps }) {
   return <Component {...pageProps} />
 }
 
-export default MyApp
+export default Lernen

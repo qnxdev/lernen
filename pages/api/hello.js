@@ -2,6 +2,7 @@
 
 //This is a Rest API it will run only on Serverside (Not a page)
 
-export default (req, res) => {
-  res.status(200).json({ name: 'John Doe' })
-}
+export default async (req, res) => {
+  //call db
+  res.status(200).json({ name: "John Doe" });
+};
