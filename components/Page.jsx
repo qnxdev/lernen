@@ -3,7 +3,7 @@ import Button from "./Button";
 export default function Page({ children }) {
   return (
     <div className="page">
-      <header className="flex">
+      <header className="flex stretch">
         <h1>Lernen</h1>
         <Button >Sign Up Now</Button>
       </header>

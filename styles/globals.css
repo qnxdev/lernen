@@ -15,7 +15,15 @@ a {
   box-sizing: border-box;
 }
 
-.flex{
+.flex {
   display: flex;
   align-items: center;
+}
+
+.stretch {
+  justify-content: space-between;
+}
+
+:root {
+  --theme1: #0761d1;
 }
