@@ -1,9 +1,17 @@
 import Head from "next/head";
 import Image from "next/image";
+import Button from "../components/Button";
+import Page from "../components/Page";
 
 /* HomePage file   - All js/ts files in /pages are pages or the app*/
 
 export default function Home() {
+  const bundles = [
+    { id: 1, title: "React + CSS + Firebase" },
+    { id: 2, title: "NextJS + CSS + MongoDB" },
+    { id: 3, title: "NextJS + CSS + Firebase" },
+  ];
+
   return (
     <div className="container">
       <Head>
@@ -12,21 +20,29 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="main">
-        </main>
-
-      <footer className="footer">
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className="logo">
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <Page>
+        <div className="bundles">
+          <div className="head">
+            <h4>Bundles</h4>
+            <p>Learn a set of technologies..</p>
+          </div>
+          <div className="content flex">
+            {bundles.map(function (item, index) {
+              return (
+                <div
+                  key={item.id}
+                  style={{ border: "2px solid #000" }}
+                  className="item"
+                >
+                  <h1>{item.title}</h1>
+                  <Button>Select</Button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div className="techs"></div>
+      </Page>
     </div>
   );
 }
