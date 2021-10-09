@@ -4,7 +4,7 @@ export default function Page({ children }) {
   return (
     <div className="page">
       <header className="flex stretch">
-        <h1>Lernen</h1>
+        <h1>L<span>e</span>rn<span>e</span>n</h1>
         <Button >Sign Up Now</Button>
       </header>
 

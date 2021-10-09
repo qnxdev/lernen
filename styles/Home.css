@@ -4,7 +4,7 @@
   color: #0070f3;
 }
  .head{
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid #ddd;
 
 }
 .head h4{
@@ -22,14 +22,17 @@
 .content{
   padding: 20px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .content .item{
-  width: 25%;
+  width: 25vw;
   color: #fff;
   border-radius: 10px;
   margin:  10px;
   padding: 10px;
   text-align: center;
+  min-height: 30vh;
+  box-shadow: 0 10px 10px 0 rgb(0 0 0 / 12%);
 }
 .content .item h1{ 
   font-weight: 400;
@@ -37,6 +40,12 @@
 }
 .content .item button{
   background-color: #fff;
-  color: var(--theme1);
-  padding: 10px 20px;
+  color: #555;
+  padding: 5px 20px;
+}
+
+.content .item button:hover{
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
 }

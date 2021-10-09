@@ -1,9 +1,17 @@
 button{
+  cursor: pointer;
   padding: .7rem 1rem;
   font-weight: bold;
   border:none;
-  border-radius: 8px;
+  border-radius: 50px;
   background-color: var(--theme1);
   color: #fff;
-  max-width: 125px;  
+  max-width: 125px;
+  border: 2px solid transparent;
+}
+
+button:hover{
+  background-color: transparent;
+  border: 2px solid var(--theme1);
+  color: var(--theme1);
 }
