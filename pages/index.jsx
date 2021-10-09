@@ -7,11 +7,44 @@ import Page from "../components/Page";
 
 export default function Home() {
   const bundles = [
-    { id: 1, title: "React + CSS + Firebase", bg:"326deg, #a4508b 0%, #5f0a87 74%" },
-    { id: 2, title: "NextJS + CSS + MongoDB", bg:"315deg, #20bf55 0%, #01baef 74%" },
-    { id: 3, title: "NextJS + CSS + Firebase",  bg:"315deg, #0cbaba 0%, #380036 74%" },
+    {
+      id: 1,
+      title: "React + CSS + Firebase",
+      bg: "326deg, #a4508b 0%, #5f0a87 74%",
+    },
+    {
+      id: 2,
+      title: "NextJS + CSS + MongoDB",
+      bg: "315deg, #20bf55 0%, #01baef 74%",
+    },
+    {
+      id: 3,
+      title: "NextJS + CSS + Firebase",
+      bg: "326deg, #bd4f6c 0%, #d7816a 74%",
+    },
   ];
-
+  const techs = [
+    {
+      id: 1,
+      title: "HTML5 ",
+      bg: "315deg, #0cbaba 0%, #380036 74% ",
+    },
+    {
+      id: 2,
+      title: "CSS3",
+      bg: "315deg, #e9bcb7 0%, #29524a 74%",
+    },
+    {
+      id: 3,
+      title: "Javascript",
+      bg: "315deg, #772f1a 0%, #f2a65a 74% ",
+    },
+    {
+      id: 4,
+      title: "React",
+      bg: "315deg, #eec0c6 0%, #e58c8a 74%",
+    },
+  ];
   return (
     <div className="container">
       <Head>
@@ -33,7 +66,6 @@ export default function Home() {
                   key={item.id}
                   style={{ backgroundImage: `linear-gradient(${item.bg})` }}
                   className="item"
-                  
                 >
                   <h1>{item.title}</h1>
                   <Button>Select</Button>
@@ -42,7 +74,26 @@ export default function Home() {
             })}
           </div>
         </div>
-        <div className="techs"></div>
+        <div className="techs">
+          <div className="head flex">
+            <h4>Technologies</h4>
+            <p>Learn a set of technologies..</p>
+          </div>
+          <div className="content flex">
+            {techs.map(function (item, index) {
+              return (
+                <div
+                  key={item.id}
+                  style={{ backgroundImage: `linear-gradient(${item.bg})` }}
+                  className="item"
+                >
+                  <h1>{item.title}</h1>
+                  <Button>Select</Button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </Page>
     </div>
   );

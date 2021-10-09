@@ -3,15 +3,21 @@
 .title a {
   color: #0070f3;
 }
-.bundles .head{
+ .head{
   border-bottom: 1px solid #aaa;
 
 }
-.bundles .head h4{
+.head h4{
   margin :10px;
   padding: 5px 10px;
   border: 2px solid var(--theme1);
   border-radius: 50px ;
+  margin-left: 10%;
+  min-width: 150px;
+  text-align: center;
+}
+.head p{
+  color: #aaa;      
 }
 .content{
   padding: 20px;

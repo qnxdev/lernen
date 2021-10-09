@@ -5,4 +5,5 @@ button{
   border-radius: 8px;
   background-color: var(--theme1);
   color: #fff;
+  max-width: 125px;  
 }
