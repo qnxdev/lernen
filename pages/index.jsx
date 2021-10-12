@@ -23,19 +23,19 @@ export default function Home() {
       bg: "315deg, #2a2a72 0%, #009ffd 74%",
     },
     {
-      id: 3,
+      id: 4,
       title: "NextJS  CSS3  PostgreSQL",
-      bg: "315deg, #2a2a72 0%, #009ffd 74%",
+      bg: "315deg, red 0%, #ffdd00 84%",
     },
     {
-      id: 3,
+      id: 5,
       title: "ExpressJS  REST  Firebase",
-      bg: "315deg, #2a2a72 0%, #009ffd 74%",
+      bg: "315deg, #6e72fc 0%, #ad1deb 74%",
     },
     {
-      id: 3,
+      id: 6,
       title: "ExpressJS  REST  MongoDB",
-      bg: "315deg, #2a2a72 0%, #009ffd 74%",
+      bg: "315deg, #f8ef42 0%, #0fd64f 80%",
     },
   ];
   const techs = [
@@ -52,7 +52,7 @@ export default function Home() {
     {
       id: 3,
       title: "Javascript",
-      bg: "315deg, #3bb78f 0%, #0bab64 74% ",
+      bg: "315deg, #3bb78f 0%, #0bab64 74%",
     },
     {
       id: 4,
@@ -60,34 +60,34 @@ export default function Home() {
       bg: "315deg, #d5adc8 0%, #ff8489 74%",
     },
     {
-      id: 4,
+      id: 5,
       title: "NextJS",
-      bg: "315deg, #d5adc8 0%, #ff8489 74%",
+      bg: "315deg, #485461 0%, #28313b 74%",
     },
     {
-      id: 4,
+      id: 6,
       title: "Express",
-      bg: "315deg, #d5adc8 0%, #ff8489 74%",
+      bg: "315deg, #8989bb 0%, #a5a4cb 74%",
     },
     {
-      id: 4,
+      id: 7,
       title: "Firebase",
-      bg: "315deg, #d5adc8 0%, #ff8489 74%",
+      bg: "315deg, #fbb034 0%, #ffdd00 74%",
     },
     {
-      id: 4,
+      id: 8,
       title: "MongoDB",
-      bg: "315deg, #d5adc8 0%, #ff8489 74%",
+      bg: "315deg, #00b712 0%, #5aff15 74%",
     },
     {
-      id: 4,
+      id: 9,
       title: "SQL",
-      bg: "315deg, #d5adc8 0%, #ff8489 74%",
+      bg: "315deg, #6b0f1a 0%, #b91372 74%",
     },
     {
-      id: 4,
+      id: 10,
       title: "PostgreSQL",
-      bg: "315deg, #d5adc8 0%, #ff8489 74%",
+      bg: "215deg, #29539b 50%, #1e3b70 74%",
     },
   ];
   return (
