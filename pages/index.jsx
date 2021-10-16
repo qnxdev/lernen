@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useState } from "react";
 import Button from "../components/Button";
 import Page from "../components/Page";
 
@@ -90,6 +91,10 @@ export default function Home() {
       bg: "215deg, #29539b 50%, #1e3b70 74%",
     },
   ];
+
+  const [showBundle, setShowBundle] = useState(false);
+  const [showTech, setShowTech] = useState(false);
+
   return (
     <div className="container">
       <Head>
@@ -106,21 +111,28 @@ export default function Home() {
           </div>
           <div className="content flex">
             {bundles.map(function (item, index) {
-              return (
-                <div
-                  key={item.id}
-                  style={{ backgroundImage: `linear-gradient(${item.bg})` }}
-                  className="item"
-                >
-                  <h1>{item.title}</h1>
-                  <Button>Select</Button>
-                </div>
-              );
+              if (
+                (!showBundle && (index == 0 || index == 1 || index == 2)) ||
+                showBundle
+              ) {
+                return (
+                  <div
+                    key={item.id}
+                    style={{ backgroundImage: `linear-gradient(${item.bg})` }}
+                    className="item"
+                  >
+                    <h1>{item.title}</h1>
+                    <Button>Select</Button>
+                  </div>
+                );
+              }
             })}
           </div>
-            <div className="expand flex">
-              <Button>View more</Button>
-            </div>
+          <div className="expand flex">
+            <Button handleClick={() => setShowBundle(!showBundle)}>
+              View {showBundle ? "less" : "more"}
+            </Button>
+          </div>
         </div>
         <div className="techs">
           <div className="head flex">
@@ -129,21 +141,28 @@ export default function Home() {
           </div>
           <div className="content flex">
             {techs.map(function (item, index) {
-              return (
-                <div
-                  key={item.id}
-                  style={{ backgroundImage: `linear-gradient(${item.bg})` }}
-                  className="item"
-                >
-                  <h1>{item.title}</h1>
-                  <Button>Select</Button>
-                </div>
-              );
+              if (
+                (!showTech && (index == 0 || index == 1 || index == 2)) ||
+                showTech
+              ) {
+                return (
+                  <div
+                    key={item.id}
+                    style={{ backgroundImage: `linear-gradient(${item.bg})` }}
+                    className="item"
+                  >
+                    <h1>{item.title}</h1>
+                    <Button>Select</Button>
+                  </div>
+                );
+              }
             })}
           </div>
-            <div className="expand flex">
-              <Button>View more</Button>
-            </div>
+          <div className="expand flex">
+            <Button handleClick={() => setShowTech(!showTech)}>
+              View {showTech ? "less" : "more"}
+            </Button>
+          </div>
         </div>
       </Page>
     </div>
