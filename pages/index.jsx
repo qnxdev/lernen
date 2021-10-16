@@ -125,7 +125,7 @@ export default function Home() {
         <div className="techs">
           <div className="head flex">
             <h4>Technologies</h4>
-            <p>Learn cutting edge frameworks and languages..</p>
+            <p>Customise your learning experience..</p>
           </div>
           <div className="content flex">
             {techs.map(function (item, index) {
