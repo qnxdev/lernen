@@ -1,51 +1,53 @@
-
-
 .title a {
   color: #0070f3;
 }
- .head{
+.head {
   border-bottom: 1px solid #ddd;
-
 }
-.head h4{
-  margin :10px;
+.head h4 {
+  margin: 10px;
   padding: 5px 10px;
   border: 2px solid var(--theme1);
-  border-radius: 50px ;
+  border-radius: 50px;
   margin-left: 10%;
   min-width: 150px;
   text-align: center;
 }
-.head p{
-  color: #aaa;      
+.head p {
+  color: #aaa;
 }
-.content{
+.content {
   padding: 20px;
   justify-content: center;
   flex-wrap: wrap;
 }
-.content .item{
-  width: 25vw;
+.content .item {
+  max-width: 100%;
+  width: 340px;
   color: #fff;
   border-radius: 10px;
-  margin:  10px;
+  margin: 10px;
   padding: 10px;
   text-align: center;
   min-height: 30vh;
   box-shadow: 0 10px 10px 0 rgb(0 0 0 / 12%);
 }
-.content .item h1{ 
+.content .item h1 {
   font-weight: 400;
   font-size: 2.5rem;
 }
-.content .item button{
+.content .item button {
   background-color: #fff;
   color: #555;
   padding: 5px 20px;
 }
 
-.content .item button:hover{
+.content .item button:hover {
   background-color: transparent;
   color: #fff;
   border-color: #fff;
+}
+.expand {
+  justify-content: center;
+  padding: 10px 0px;
 }

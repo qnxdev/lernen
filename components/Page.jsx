@@ -5,6 +5,7 @@ export default function Page({ children }) {
     <div className="page">
       <header className="flex stretch">
         <h1>L<span>e</span>rn<span>e</span>n</h1>
+        <a className="contact" href="">Contact Us</a>
         <Button >Sign Up Now</Button>
       </header>
 
