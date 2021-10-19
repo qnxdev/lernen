@@ -19,5 +19,14 @@ footer {
   padding: 0px 0px 20px 0px;
 }
 .contact{
-  text-decoration: underline;
+  text-decoration: none;
+  padding: 0.605rem 1rem;
+  border-radius: 50px;
+  margin-right: 10px;
+  border: 2px solid transparent;
+  transition: 0.2s;
+}
+
+.contact:hover {
+  border: 2px solid var(--theme1);
 }

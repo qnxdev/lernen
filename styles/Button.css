@@ -7,7 +7,8 @@ button{
   background-color: var(--theme1);
   color: #fff;
   max-width: 125px;
-  border: 2px solid transparent;
+    
+  transition: 0.2s;
 }
 
 button:hover{
