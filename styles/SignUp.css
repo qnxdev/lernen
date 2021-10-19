@@ -1,0 +1,20 @@
+form {
+  width: 100%;
+  justify-content: center;
+}
+form input {
+  padding: 5px 10px;
+  width: 100%;
+  margin: 10px 0px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgb(73, 73, 73);
+}
+form input:focus, form input:hover {
+ outline: none;
+}
+form label {
+  align-items: flex-start !important;
+  width: 80%;
+  max-width: 600px;
+}

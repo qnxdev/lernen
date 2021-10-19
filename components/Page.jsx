@@ -4,14 +4,18 @@ export default function Page({ children }) {
   return (
     <div className="page">
       <header className="flex stretch">
-        <h1>
-          L<span>e</span>rn<span>e</span>n
-        </h1>
+        <a href="/">
+          <h1>
+            L<span>e</span>rn<span>e</span>n
+          </h1>
+        </a>
         <div className="flex">
-          <a className="contact" href="">
+          <a className="button contact" href="/">
             Contact Us
           </a>
-          <Button>Sign Up Now</Button>
+          <a href="/signup">
+            <Button>Sign Up Now</Button>
+          </a>
         </div>
       </header>
 

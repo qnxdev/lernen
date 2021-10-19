@@ -16,17 +16,26 @@ header h1 span{
 }
 footer {
   text-align: center;
-  padding: 0px 0px 20px 0px;
+  margin-top: 40px;
+  padding: 20px 0px 20px 0px;
+  border-top: 1px solid #ddd;
 }
-.contact{
-  text-decoration: none;
-  padding: 0.605rem 1rem;
-  border-radius: 50px;
-  margin-right: 10px;
-  border: 2px solid transparent;
-  transition: 0.2s;
+.contact {
+  border: none !important;
+  margin-right: 5px;
+  font-size: large;
+  white-space: nowrap;
+  background-color: transparent !important;
+  color: var(--theme1) !important;
+  text-decoration-thickness: 3px !important;
+}
+.contact:hover {
+  text-decoration: underline;
+  border: none !important;
 }
 
-.contact:hover {
-  border: 2px solid var(--theme1);
+@media (max-width: 400px) {
+  .contact {
+    display: none;
+  }
 }

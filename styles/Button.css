@@ -1,17 +1,16 @@
-button{
+.button{
   cursor: pointer;
   padding: .7rem 1rem;
   font-weight: bold;
-  border:none;
+  border: 2px solid transparent;
   border-radius: 50px;
   background-color: var(--theme1);
   color: #fff;
   max-width: 125px;
-    
   transition: 0.2s;
 }
 
-button:hover{
+.button:hover{
   background-color: transparent;
   border: 2px solid var(--theme1);
   color: var(--theme1);

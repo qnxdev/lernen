@@ -41,7 +41,7 @@ export const ListItem = ({ selected, item }) => {
     >
       <div className="tick flex justify-end">
         <Tick on={selected} />
-      </div>
+      </div>        
       <h1>{item.title}</h1>
       <Button>{selected ? "Remove" : "Select"}</Button>
     </div>
