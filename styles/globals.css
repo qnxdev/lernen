@@ -20,6 +20,14 @@ a {
   align-items: center;
 }
 
+.justify-end{
+  justify-content: flex-end;
+}
+
+.col {
+  flex-direction: column;
+}
+
 .stretch {
   justify-content: space-between;
 }
