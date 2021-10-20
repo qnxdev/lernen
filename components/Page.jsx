@@ -1,21 +1,26 @@
 import Button from "./Button";
+import Link from "next/link";
 
 export default function Page({ children }) {
   return (
     <div className="page">
       <header className="flex stretch">
-        <a href="/">
+        <Link href="/">
           <h1>
             L<span>e</span>rn<span>e</span>n
           </h1>
-        </a>
+        </Link>
         <div className="flex">
-          <a className="button contact" href="/">
-            Contact Us
-          </a>
-          <a href="/signup">
-            <Button>Sign Up Now</Button>
-          </a>
+          <Link href="/">
+            <a>
+              <button className="contact">Contact Us</button>
+            </a>
+          </Link>
+          <Link href="/signup">
+            <a>
+              <Button>Sign Up Now</Button>
+            </a>
+          </Link>
         </div>
       </header>
 

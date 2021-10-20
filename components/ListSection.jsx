@@ -1,12 +1,10 @@
-import { useContext, useState } from "react";
-import { store } from "../lib/store";
+import { useState } from "react";
 import Button from "./Button";
-import { ListItem } from "./Item";
+import List from "./List";
 
 export default function ListSection({ className, items, title, text }) {
   const [show, setShow] = useState(false);
-  const { state, dispatch } = useContext(store);
-  
+
   return (
     <div className={className}>
       <div className="head flex">
@@ -14,16 +12,7 @@ export default function ListSection({ className, items, title, text }) {
         <p>{text}</p>
       </div>
       <div className="content flex">
-        {items.map(function (item, index) {
-          if (
-            (!show && (index == 0 || index == 1 || index == 2)) ||
-            show
-          ) {
-            return (
-              <ListItem selected={state.selected.includes(item.id)} item={item} key={item.id}/>
-            );
-          }
-        })}
+        <List items={show ? items : items.slice(0,3)} />
       </div>
       <div className="expand flex">
         <Button handleClick={() => setShow(!show)}>

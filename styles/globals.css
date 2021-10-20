@@ -1,9 +1,18 @@
 html,
-body {
+body,
+.page {
+  height: 100vh;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.main {
+  height: auto;
+  min-height: calc(100% - 120px);
+  padding-top: 10px;
+  padding-bottom: 30px;
 }
 
 a {
@@ -28,10 +37,33 @@ a {
   flex-direction: column;
 }
 
+.w100 {
+  width: 100%;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.wh100 {
+  width: 100%;
+  height: 100%;
+}
+
 .stretch {
   justify-content: space-between;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
+.light-border {
+  border: var(--lightBorder);
+}
+
 :root {
   --theme1: rgb(0, 191, 111);
+  --lightBorder: 1px solid #ddd;
+  --boxShadow:  -5px -5px 10px rgba(0,0,0,0.13);
 }

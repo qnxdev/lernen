@@ -3,7 +3,8 @@
 }
 
 header {
-  padding: 10px 20px;
+  padding: 0px 20px;
+  height: 60px;
 }
 header h1 {
   margin: 0;
@@ -16,22 +17,23 @@ header h1 span{
 }
 footer {
   text-align: center;
-  margin-top: 40px;
-  padding: 20px 0px 20px 0px;
-  border-top: 1px solid #ddd;
+  padding: 20px 0px;
+  height: 60px;
+  line-height: 20px;
+  font-size: 16px;
+  border-top: var(--lightBorder);
 }
 .contact {
-  border: none !important;
-  margin-right: 5px;
-  font-size: large;
-  white-space: nowrap;
-  background-color: transparent !important;
-  color: var(--theme1) !important;
+  margin-right: 20px;
+  font-weight: 700;
+  font-size: 1rem;
+  background-color: transparent;
+  border: none;
+  color: var(--theme1);
   text-decoration-thickness: 3px !important;
 }
 .contact:hover {
   text-decoration: underline;
-  border: none !important;
 }
 
 @media (max-width: 400px) {
