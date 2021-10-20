@@ -5,34 +5,61 @@
   overflow: hidden;
 }
 
+@media (max-width:960px) {
+  .container{
+    flex-wrap: wrap;
+  }
+}
+@media (max-width:640px) {
+  .container .col-wrap{
+    flex-direction: column;
+  }
+  .container .sign-col{
+    height: fit-content;
+  }
+}
+
 form.sign, .sign-col{
   width: 100%;
-  /* min-width: 33vw; */
-  overflow: auto;
   height: 77vh;
   padding: 20px 10px;
+}
+.sign-col{
+  overflow: auto;
+  max-width: 33vw;
+  max-width: 300px;
+}
+
+form.sign{
+  padding: 0 5%;
 }
 form.sign h2, .sign-col h2{
   text-align: center;
   margin: 10px;
 }
-
+.flex{
+  display: flex;
+}
 .sign label {
   align-items: flex-start !important;
   width: 100%;
   max-width: 400px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 1rem;
+  font-weight: 700;
+}
+.sign button{
+  margin-top: 20px;
 }
 .sign input {
-  font-size: 1.2rem;
-  padding: 10px;
-  margin: 10px 0px;
-  border-radius: 8px;
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin: 5px 0px;
+  border-radius: 15px;
+  border: 2px solid var(--theme1)
 }
 .sign input:focus {
   outline: none;
-  border: 1px solid rgb(158, 158, 158);
 }
 
 
@@ -48,16 +75,21 @@ form.sign h2, .sign-col h2{
 }
 .sign-col::-webkit-scrollbar {
   width: 5px;
-  background-color: transparent;
+  background-color: #ddd;
 }
 
 .sign-col::-webkit-scrollbar-thumb {
-  background-color: #ddd;
+  background-color: var(--theme1);
 }
 
 @media (max-width: 800px) {
   
   .container {
     flex-direction: column;
+  }
+}
+@media (max-width: 480px) {
+  .container{
+    margin: 0;
   }
 }

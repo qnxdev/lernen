@@ -65,5 +65,5 @@ a {
 :root {
   --theme1: rgb(0, 191, 111);
   --lightBorder: 1px solid #ddd;
-  --boxShadow:  -5px -5px 10px rgba(0,0,0,0.13);
+  --boxShadow:  0 30px 60px 0 rgb(0 0 0 / 12%);
 }

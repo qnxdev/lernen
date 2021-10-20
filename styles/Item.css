@@ -13,7 +13,7 @@
   padding-left: 15px;
   text-align: center;
   min-height: 30vh;
-  box-shadow: 0 10px 10px 0 rgb(0 0 0 / 12%);
+  box-shadow: 0 30px 60px 0 rgb(0 0 0 / 12%);
   padding-bottom: 30px;
 }
 .list .item h1 {
@@ -49,14 +49,24 @@
   border-color: #fff;
 }
 
-
-@media (max-width: 360px) {
+.final.item {
+  min-height: 60px !important;
+  border-radius: 15px !important;
+}
+.final.item h1 {
+  font-size: 1.2rem !important;
+}
+.final .empty {
+  width: 20px;
+  height: 20px;
+}
+@media (max-width: 400px) {
   .item {
     min-height: 60px !important;
     border-radius: 15px !important;
   }
   .item h1 {
-    font-size:1.2rem !important;
+    font-size: 1.2rem !important;
   }
   .empty {
     width: 20px;

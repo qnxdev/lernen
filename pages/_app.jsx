@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import "../styles/Home.css";
+import "../styles/Thanks.css";
 import "../styles/Page.css";
 import "../styles/Button.css";
 import "../styles/Item.css";
