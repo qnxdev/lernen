@@ -17,6 +17,10 @@
   color: var(--theme1);
 }
 
+.button:focus{
+  outline: none;
+}
+
 .final.item button {
   display: none;
 }

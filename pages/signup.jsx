@@ -45,7 +45,7 @@ export default function SignUp() {
   return (
     <Page>
       <div className="container flex">
-        <form className="sign flex col justify-center">
+        <div className="form sign flex col justify-center">
           <h2>Sign Up</h2>
           <Input label="Name" placeholder="Full Name" type="text" />
           <Input label="Email ID" placeholder="Email ID" type="text" />
@@ -73,8 +73,9 @@ export default function SignUp() {
               </option>
             ))}
           </select>
-          <Button>Sign Up</Button>
-        </form>
+          <p className="error">{loading ? "Please wait.." : message!="" ? message :""}</p>
+          <Button handleClick={onSubmit}>Sign Up</Button>
+        </div>
         <div className="flex col-wrap">
           <div className="sign-col">
             <h2>Bundles </h2>

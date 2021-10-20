@@ -19,7 +19,7 @@
   }
 }
 
-form.sign, .sign-col{
+.form.sign, .sign-col{
   width: 100%;
   height: 77vh;
   padding: 20px 10px;
@@ -30,10 +30,10 @@ form.sign, .sign-col{
   max-width: 300px;
 }
 
-form.sign{
+.form.sign{
   padding: 0 5%;
 }
-form.sign h2, .sign-col h2{
+.form.sign h2, .sign-col h2{
   text-align: center;
   margin: 10px;
 }

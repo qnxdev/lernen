@@ -1,4 +1,4 @@
-export default function Realtime() {
+export default async function Realtime() {
   let ua = {};
   if (navigator) {
     if (navigator.platform) {
@@ -45,9 +45,9 @@ export default function Realtime() {
     );
     const { success } = await promise.json();
     if (success) {
-      console.log("Realtime request failed.");
+      console.log("Realtime request complete.");
     } else {
-      console.log("Realtime update complete.");
+      console.log("Realtime update failed.");
     }
   } catch (error) {
     console.log("Realtime request failed.");
