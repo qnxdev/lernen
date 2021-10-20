@@ -1,17 +1,28 @@
-.button{
+.button {
   cursor: pointer;
-  padding: .7rem 1rem;
+  white-space: nowrap;
+  padding: 0.5rem 1.5rem;
   font-weight: bold;
+  font-size: 1rem;
   border: 2px solid transparent;
-  border-radius: 50px;
+  border-radius: 15px;
   background-color: var(--theme1);
   color: #fff;
-  max-width: 125px;
   transition: 0.2s;
 }
 
-.button:hover{
+.button:hover {
   background-color: transparent;
   border: 2px solid var(--theme1);
   color: var(--theme1);
+}
+
+.final.item button {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .list .item button {
+    display: none;
+  }
 }

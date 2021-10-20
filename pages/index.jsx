@@ -4,6 +4,8 @@ import ListSection from "../components/ListSection";
 import Page from "../components/Page";
 import { bundles, techs } from "../lib/lists";
 import { store } from "../lib/store";
+import Link from "next/link";
+import Button from "../components/Button";
 
 export default function Home() {
   const { state, dispatch } = useContext(store);
@@ -30,6 +32,20 @@ export default function Home() {
           text="Customise your learning experience.."
         />
       </Page>
+      {state.selected.length !== 0 && (
+        <div className="popup w100 flex">
+
+          {/* <p>selected: {state.selected.map(id => {
+            return state.
+          })}</p> */}
+          
+          <Link href="/signup">
+            <a>
+              <Button>Sign Up</Button>
+            </a>
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

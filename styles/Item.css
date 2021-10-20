@@ -1,66 +1,65 @@
-.content .item {
-    max-width: 100%;
-    width: 340px;
-    color: #fff;
-    border-radius: 10px;
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    min-height: 30vh;
-    box-shadow: 0 10px 10px 0 rgb(0 0 0 / 12%);
-    padding-bottom: 30px;
-  }
-  .content .item h1 {
-    font-weight: 400;
-    font-size: 2.5rem;
-  }
-  .content .item button {
-    transition-duration: .5s;
-    background-color: #fff;
-    color: #555;
-    padding: 5px 20px;
-  }
-  
-  .content .item button:hover {
-    background-color: #fff;
-    backdrop-filter: blur(62px);
-    border-color: #fff;
-    transform: scale(1.05);
-  }
+.list {
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.list .item {
+  max-width: 90%;
+  width: 340px;
+  color: #fff;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  padding-left: 15px;
+  text-align: center;
+  min-height: 30vh;
+  box-shadow: 0 10px 10px 0 rgb(0 0 0 / 12%);
+  padding-bottom: 30px;
+}
+.list .item h1 {
+  font-weight: 400;
+  font-size: 2.5rem;
+}
+.list .item button {
+  transition-duration: 0.5s;
+  background-color: #fff;
+  color: #555;
+  padding: 5px 20px;
+}
 
-.item h1{
-    margin-top: auto;
+.list .item button:hover {
+  background-color: #fff;
+  backdrop-filter: blur(62px);
+  border-color: #fff;
+  transform: scale(1.05);
+}
+
+.item h1 {
+  margin-top: auto;
+}
+
+.tick {
+  width: 100%;
+}
+.empty {
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  border: 2px solid;
+  border-color: #fff;
 }
 
 
-.tick{
-    width: 100%;
-}
-.empty{
-    width: 25px;
-    height: 25px;
-    border-radius: 50px;
-    border: 2px solid;
-    border-color: #fff;
-}
-
-@media (max-width: 640px) {
-  .content .item { 
-    max-width: 100%;
-    min-height: 70px;
-    padding-bottom: 10px;
-    margin: 5px;
-    border-radius: 20px;
-    flex-direction: row-reverse !important;
+@media (max-width: 360px) {
+  .item {
+    min-height: 60px !important;
+    border-radius: 15px !important;
   }
-  .content .item h1 {
-    font-weight: 400;
-    font-size: 1.5rem;
-    white-space: nowrap;
-    margin: 0px;
-    text-align: center;
+  .item h1 {
+    font-size:1.2rem !important;
   }
-  .item button{
-    display: none;
+  .empty {
+    width: 20px;
+    height: 20px;
   }
 }
