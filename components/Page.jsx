@@ -6,12 +6,13 @@ export default function Page({ children }) {
   return (
     <div className="page">
       <Head>
-        <title>Lernen | Learn Coding</title>
+        <title>Lernen | Learn Web Technologies with your personal tutor</title>
         <meta
           name="description"
-          content="Lernen is here now everyone can learn coding"
+          content="With just 2 hours a day become a web developer. Try first 3 days for free and then ₹100 per day."
         />
-        <link rel="icon" href="card.png" />
+        <link rel="icon" href="favicon.ico" />
+        <meta property="og:image" content="card.png"></meta>
       </Head>
 
       <header className="flex stretch">
