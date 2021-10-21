@@ -12,13 +12,8 @@
   padding: 10px;
   padding-left: 15px;
   text-align: center;
-<<<<<<< HEAD
-  min-height: 30vh;
-  /* box-shadow: 0 30px 60px 0 rgb(0 0 0 / 12%); */
-=======
   min-height: 30vh;/* 
   box-shadow: 0 30px 60px 0 rgb(0 0 0 / 12%); */
->>>>>>> 7d28483f5bad68921d4964a67e2f6a5a8f7ef4d1
   padding-bottom: 30px;
 }
 .list .item h1 {
