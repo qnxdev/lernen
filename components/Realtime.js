@@ -3,20 +3,23 @@ export default async function Realtime() {
   if (navigator) {
     if (navigator.platform) {
       let p = navigator.platform;
+      ua.os = navigator.platform;
       if (p.indexOf("Win") != -1) ua.os = "Windows";
       if (p.indexOf("Mac") != -1) ua.os = "MacOS";
-      if (p.indexOf("X11") != -1) ua.os = "UNIX";
       if (p.indexOf("iPhone") != -1) ua.os = "iOS";
-      if (p.indexOf("Linux") != -1) ua.os = "Linux";
       if (p.indexOf("Android") != -1) ua.os = "Android";
+      if (p.indexOf("Linux") != -1) ua.os = "Linux";
+      if (p.indexOf("X11") != -1) ua.os = "UNIX";
     }
     if (navigator.userAgent) {
       const u = navigator.userAgent;
+      ua.type = u;
       if (u.includes("Mobile")) {
         ua.type = "Mobile";
       } else {
         ua.type = "Desktop";
       }
+      ua.browser = u;
       if (u.includes("Safari") && (u.includes("Mac") || u.includes("iPhone"))) {
         //version u.split(" ").find(i=>i.includes("Safari/")).replace("Safari/","")
         ua.browser = "Apple Safari";

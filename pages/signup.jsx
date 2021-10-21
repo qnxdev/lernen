@@ -4,9 +4,12 @@ import Input from "../components/Input";
 import List from "../components/List";
 import { bundles, countries, techs } from "../lib/lists";
 import { useRouter } from "next/dist/client/router";
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
+import { store } from "../lib/store";
+import GenerateCourses from "../components/GenerateCourses";
 export default function SignUp() {
   const router = useRouter();
+  const { state, dispatch } = useContext(store);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [user, setUser] = useState({
@@ -36,11 +39,25 @@ export default function SignUp() {
       setMessage("Phone Number is required.");
     } else {
       setMessage("");
+      const courses = GenerateCourses(state.selected);
       try {
-        const promise = await fetch("/api/hello");
+        const promise = await fetch("/api/create", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ ...user, courses: courses }),
+        });
         const data = await promise.json();
         if (data.id) {
           //set cookie
+          try {
+            if (document) {
+              document.cookie = "LERNEN_LD=" + data.id + "; path=/";
+            }
+          } catch (error) {
+            console.log("Please enable cookies.");
+          }
           setUser({ ...user, id: data.id });
           router.push("/thank-you");
         } else {
@@ -52,7 +69,6 @@ export default function SignUp() {
     }
     setLoading(false);
   };
-  
 
   return (
     <Page>
@@ -64,21 +80,21 @@ export default function SignUp() {
             placeholder="Full Name"
             type="text"
             value={user.name}
-            onInput={(e) => onInput(e, 'name')}
+            onInput={(e) => onInput(e, "name")}
           />
           <Input
             label="Email ID"
             placeholder="Email ID"
             type="text"
             value={user.email}
-            onInput={(e) => onInput(e, 'email')}
+            onInput={(e) => onInput(e, "email")}
           />
           <Input
             label="Mobile Number"
             placeholder="Mobile Number"
             type="number"
             value={user.phone}
-            onInput={(e) => onInput(e, 'phone')}
+            onInput={(e) => onInput(e, "phone")}
           />
           <h4>Country</h4>
           <select
@@ -86,7 +102,7 @@ export default function SignUp() {
             id="countries"
             value={user.country}
             onChange={(e) => {
-              onInput(e, 'country');
+              onInput(e, "country");
               //showList(false);
             }}
           >
