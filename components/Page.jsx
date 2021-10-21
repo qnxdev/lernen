@@ -6,13 +6,15 @@ export default function Page({ children }) {
   return (
     <div className="page">
       <Head>
-        <title>Lernen | Learn Web Technologies with your personal tutor</title>
-        <meta
-          name="description"
-          content="With just 2 hours a day become a web developer. Try first 3 days for free and then ₹100 per day."
-        />
+        <title>Lernen | Learn Web Development with your Personal Tutor</title>
+        <meta property="og:title" content="Lernen | Learn Web Development with your Personal Tutor" />
+        <meta property="og:url" content="https://lernen.vercel.app/" />
+        <meta property="og:type" content="website" />
+        <meta name="description" content="With just 2 hours a day become a Web Developer. Try for free and continue just at ₹100 per day. Sign Up today & invite your friends." />
+        <link rel="apple-touch-icon" href="favcon.ico" />
+        <link rel="shortcut icon" href="favicon.ico" />
         <link rel="icon" href="favicon.ico" />
-        <meta property="og:image" content="card.png"></meta>
+        <meta property="og:image" content="card.png"/>
       </Head>
 
       <header className="flex stretch">
