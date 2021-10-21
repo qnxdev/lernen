@@ -1,7 +1,9 @@
 html,
 body,
 .page {
-  height: 100vh;
+  min-width: 300px;
+  height: auto;
+  min-height: 100vh;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -10,7 +12,7 @@ body,
 
 .main {
   height: auto;
-  min-height: calc(100% - 120px);
+  min-height: 80vh;
   padding-top: 10px;
   padding-bottom: 30px;
 }
@@ -24,12 +26,15 @@ a {
   box-sizing: border-box;
 }
 
+
+/* common classes */
+
 .flex {
   display: flex;
   align-items: center;
 }
 
-.justify-end{
+.justify-end {
   justify-content: flex-end;
 }
 
@@ -62,8 +67,32 @@ a {
   border: var(--lightBorder);
 }
 
+/* SCROLLBAR STYLES */
+
+.custom-scroll::-webkit-scrollbar, .custom-scroll::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: transparent;
+  border-radius: 40px;
+  transition: 1s ease-in-out;
+}
+
+body:hover .custom-scroll::-webkit-scrollbar {
+  background-color: #ddd;
+}
+
+body:hover .custom-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--theme1);
+}
+
+.no-scroll::-webkit-scrollbar {
+  width: 0px;
+  background-color: transparent;
+}
+
+/* VARIABLES */
+
 :root {
   --theme1: rgb(0, 191, 111);
   --lightBorder: 1px solid #ddd;
-  --boxShadow:  0 30px 60px 0 rgb(0 0 0 / 12%);
+  --boxShadow: 0 30px 60px 0 rgb(0 0 0 / 12%);
 }

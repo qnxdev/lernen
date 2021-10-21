@@ -1,9 +1,24 @@
+.thank {
+  padding-top: 15vh;
+  text-align: center;
+}
 
+.thank h1 {
+  font-size: 5rem;
+  margin-top: 20px;
+}
 
+.thank h3 {
+  font-size: 3rem;
+  font-weight: 300;
+  padding: 0px 10px;
+}
 
-
-
-
-@media (max-width:640px) {
-    
+@media (max-width: 640px) {
+    .thank h1 {
+        font-size: 3rem;
+    }
+    .thank h3 {
+        font-size: 2rem;
+    }
 }

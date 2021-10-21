@@ -1,12 +1,11 @@
 .page {
   color: var(--theme1);
   border-bottom: 5px solid var(--theme1);
-  height: 100%;
 }
 
 header {
   padding: 0px 20px;
-  height: 60px;
+  height: 10vh;
 }
 header h1 {
   margin: 0;
@@ -20,7 +19,7 @@ header h1 span{
 footer {
   text-align: center;
   padding: 20px 0px;
-  height: 60px;
+  height: calc(10vh - 5px);
   line-height: 20px;
   font-size: 16px;
   border-top: var(--lightBorder);

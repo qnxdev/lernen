@@ -4,7 +4,7 @@ import Input from "../components/Input";
 import List from "../components/List";
 import { bundles, countries, techs } from "../lib/lists";
 import { useRouter } from "next/dist/client/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function SignUp() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -13,16 +13,26 @@ export default function SignUp() {
     name: "",
     email: "",
     phone: "",
+    country: "+91",
     courses: [],
   });
 
+  const onInput = (e, prop) => {
+    setUser({ ...user, [prop]: e.target.value });
+  };
+
+  // useEffect(() => {
+  //   console.log(user);
+  // }, [user]);
+
   const onSubmit = async () => {
+    const regex = /^\s*$/g;
     setLoading(true);
-    if (user.name == "") {
+    if (user.name.match(regex)) {
       setMessage("Name is required.");
-    } else if (user.email == "") {
+    } else if (user.email.match(regex)) {
       setMessage("Email ID is required.");
-    } else if (user.phone == "") {
+    } else if (user.phone.match(regex)) {
       setMessage("Phone Number is required.");
     } else {
       setMessage("");
@@ -42,46 +52,67 @@ export default function SignUp() {
     }
     setLoading(false);
   };
+  
+
   return (
     <Page>
       <div className="container flex">
-        <div className="form sign flex col justify-center">
+        <div className="form flex col justify-center">
           <h2>Sign Up</h2>
-          <Input label="Name" placeholder="Full Name" type="text" />
-          <Input label="Email ID" placeholder="Email ID" type="text" />
+          <Input
+            label="Name"
+            placeholder="Full Name"
+            type="text"
+            value={user.name}
+            onInput={(e) => onInput(e, 'name')}
+          />
+          <Input
+            label="Email ID"
+            placeholder="Email ID"
+            type="text"
+            value={user.email}
+            onInput={(e) => onInput(e, 'email')}
+          />
           <Input
             label="Mobile Number"
             placeholder="Mobile Number"
             type="number"
+            value={user.phone}
+            onInput={(e) => onInput(e, 'phone')}
           />
+          <h4>Country</h4>
           <select
+            className="custom-scroll"
             id="countries"
+            value={user.country}
             onChange={(e) => {
-              if (e.target.value != "" && e.target.value != "+") {
-                console.log(e.target.value);
-                //showList(false);
-              }
+              onInput(e, 'country');
+              //showList(false);
             }}
           >
-            <option key="s">Select Country</option>
+            <option key="s" className="option1" value={undefined}>
+              Select Country
+            </option>
             <option key="k" value="+91">
-              +91 India
+              +91 - India
             </option>
             {JSON.parse(countries).map((i, k) => (
               <option key={k} value={i.c} defaultValue={i.n}>
-                {i.c + " " + i.n}
+                {i.c + " - " + i.n}
               </option>
             ))}
           </select>
-          <p className="error">{loading ? "Please wait.." : message!="" ? message :""}</p>
+          <p className="error">
+            {loading ? "Please wait.." : message != "" ? message : ""}
+          </p>
           <Button handleClick={onSubmit}>Sign Up</Button>
         </div>
         <div className="flex col-wrap">
-          <div className="sign-col">
+          <div className="sign-col custom-scroll">
             <h2>Bundles </h2>
             <List items={bundles} final />
           </div>
-          <div className="sign-col">
+          <div className="sign-col custom-scroll">
             <h2>Techs</h2>
             <List items={techs} final />
           </div>
