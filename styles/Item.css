@@ -12,8 +12,8 @@
   padding: 10px;
   padding-left: 15px;
   text-align: center;
-  min-height: 30vh;
-  box-shadow: 0 30px 60px 0 rgb(0 0 0 / 12%);
+  min-height: 30vh;/* 
+  box-shadow: 0 30px 60px 0 rgb(0 0 0 / 12%); */
   padding-bottom: 30px;
 }
 .list .item h1 {
