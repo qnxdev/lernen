@@ -1,3 +1,5 @@
-.list.final{
-    
+.list {
+  overflow-y: auto;
+  width: auto;
+  overflow-x: hidden;
 }

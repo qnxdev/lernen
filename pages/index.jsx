@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useContext, useEffect, useState } from "react";
 import ListSection from "../components/ListSection";
 import Page from "../components/Page";
@@ -20,12 +19,6 @@ export default function Home() {
 
   return (
     <div className="app">
-      <Head>
-        <title>Lernen | Learn Technologies</title>
-        <meta name="description" content="Lernen" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <Page>
         <ListSection
           className="bundles"

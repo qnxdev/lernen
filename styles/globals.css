@@ -13,7 +13,7 @@ body,
 .main {
   height: auto;
   min-height: 80vh;
-  padding-top: 10px;
+  padding-top: 0px;
   padding-bottom: 30px;
 }
 
@@ -71,16 +71,11 @@ a {
 
 .custom-scroll::-webkit-scrollbar, .custom-scroll::-webkit-scrollbar-thumb {
   width: 5px;
-  background-color: transparent;
-  border-radius: 40px;
-  transition: 1s ease-in-out;
-}
-
-body:hover .custom-scroll::-webkit-scrollbar {
   background-color: #ddd;
+  border-radius: 40px;
 }
 
-body:hover .custom-scroll::-webkit-scrollbar-thumb {
+.custom-scroll::-webkit-scrollbar-thumb {
   background-color: var(--theme1);
 }
 

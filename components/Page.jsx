@@ -1,9 +1,19 @@
 import Button from "./Button";
 import Link from "next/link";
+import Head from "next/head";
 
 export default function Page({ children }) {
   return (
     <div className="page">
+      <Head>
+        <title>Lernen | Learn Coding</title>
+        <meta
+          name="description"
+          content="Lernen is here now everyone can learn coding"
+        />
+        <link rel="icon" href="card.png" />
+      </Head>
+
       <header className="flex stretch">
         <Link href="/">
           <h1>

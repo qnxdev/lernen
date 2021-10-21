@@ -108,11 +108,11 @@ export default function SignUp() {
           <Button handleClick={onSubmit}>Sign Up</Button>
         </div>
         <div className="flex col-wrap">
-          <div className="sign-col custom-scroll">
+          <div className="sign-col">
             <h2>Bundles </h2>
             <List items={bundles} final />
           </div>
-          <div className="sign-col custom-scroll">
+          <div className="sign-col">
             <h2>Techs</h2>
             <List items={techs} final />
           </div>

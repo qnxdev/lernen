@@ -6,7 +6,7 @@ export default function List({ items, final }) {
   const { state, dispatch } = useContext(store);
 
   return (
-    <div className="list flex ">
+    <div className="list flex custom-scroll">
       {items.map((item) => {
         return (
           <ListItem
