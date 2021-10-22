@@ -85,7 +85,7 @@ export default function Page({ children }) {
           </h1>
         </Link>
         <div className="flex">
-          <Link href="/">
+          <Link href="/contact">
             <a>
               <button className="contact">Contact Us</button>
             </a>
@@ -100,8 +100,13 @@ export default function Page({ children }) {
 
       <main className="main">{children}</main>
 
-      <footer className="footer">
-        &copy; {new Date().getFullYear()} Lernen.
+      <footer className="footer flex">
+          <Link href="/contact">
+            <a>
+              <button className="contact">Contact Us</button>
+            </a>
+          </Link>
+        <span>&copy; {new Date().getFullYear()} Lernen.</span>
       </footer>
     </div>
   );

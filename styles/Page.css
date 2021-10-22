@@ -22,9 +22,9 @@ footer {
   height: 10vh;
   min-height: 60px;
   line-height: 20px;
-  font-size: 16px;
   border-top: var(--lightBorder);
   border-bottom: 5px solid var(--theme1);
+  justify-content: space-evenly;
 }
 .contact {
   margin-right: 20px;
@@ -38,6 +38,14 @@ footer {
 }
 .contact:hover {
   text-decoration: underline;
+}
+@media (max-width: 480px) {
+  .contact {
+    margin-right: 5px;
+  }
+  header a button{
+    padding: .5rem !important;
+  }
 }
 
 @media (max-width: 400px) {
