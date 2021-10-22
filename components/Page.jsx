@@ -15,6 +15,18 @@ export default function Page({ children }) {
         <link rel="shortcut icon" href="favicon.ico" />
         <link rel="icon" href="favicon.ico" />
         <meta property="og:image" content="card.png"/>
+      <script type="text/javascript">
+        {`
+            window._mfq = window._mfq || [];
+             (function() {
+                let mf = document.createElement("script");
+                mf.type = "text/javascript";
+                mf.defer = true;
+                mf.src = "//cdn.mouseflow.com/projects/e668851c-7533-4715-b1f2-346132edca24.js";
+                document.getElementsByTagName("head")[0].appendChild(mf);
+             })();
+        `}
+      </script>
       </Head>
 
       <header className="flex stretch">
