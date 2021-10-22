@@ -33,7 +33,7 @@ export default function Page({ children }) {
 
         <meta name="theme-color" content={theme} />
         <meta name="keywords" content={keywords} />
-        <meta itemprop="isFamilyFriendly" content="true" />
+        <meta itemProp="isFamilyFriendly" content="true" />
 
         <link rel="image_src" href={icon} />
         <link rel="icon" href={icon} />
