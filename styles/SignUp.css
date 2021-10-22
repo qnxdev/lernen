@@ -2,20 +2,47 @@
   margin: 0px 20px;
   justify-content: space-around;
   height: 100%;
-  overflow: hidden;
 }
 
 @media (max-width: 960px) {
   .container {
     flex-wrap: wrap;
   }
+  .form {
+    padding: 0 5%;
+  }
+  .form, .sign-col {
+    margin-bottom: 20px;
+  }
 }
-@media (max-width: 640px) {
+@media (max-width: 1125px) {
+  .sign-col {
+    max-width: 320px !important;
+  }
+}
+@media (max-width: 690px) {
   .container .col-wrap {
     flex-direction: column;
+    width: 100%;
+  }
+  .sign-col .list .item {
+    width: 80%;
   }
   .container .sign-col, .container .form {
     height: fit-content;
+  }
+  .form, .sign-col {
+    margin-bottom: 0px;
+    max-width: 100% !important;
+  }
+  .form {
+    padding: 0 8% !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .sign-col .list .item {
+    width: 340px;
   }
 }
 
@@ -23,16 +50,19 @@
 .sign-col {
   width: 100%;
   height: 74vh;
-  padding: 20px 10px;
+}
+
+.list {
+  height: 100%;
 }
 .sign-col {
-  overflow: auto;
-  /* max-width: 33vw; */
-  max-width: 300px;
+  max-width: 380px;
+  padding: 20px 10px;
 }
 
 .form {
-  padding: 0 5%;
+  padding: 0 2%;
+  min-height: 400px;
 }
 .form h2,
 .sign-col h2 {
