@@ -5,15 +5,13 @@ import Script from "next/script";
 
 export default function Page({ children }) {
   const title = "Lernen | Become a Web Developer",
-    description =
-      "Learn just 2 hours a day to get a new income. Try for free and continue just at ₹100 per day.",
-    icon = "card.jpg",
+    description = "Learn just 2 hours a day to get a new income. Try for free and continue just at ₹100 per day.",
+    icon = "/card.jpg",
     site_name = "Lernen",
     url = "https://lernen.vercel.app/",
-    favicon = "favicon.ico",
+    favicon = "/favicon.ico",
     theme = "rgb(0, 191, 111)",
-    keywords =
-      "html, css, javascript, tutorials, web, development, study, react, next, js, beginner, design, responsive, front-end, back-end";
+    keywords = "html, css, javascript, tutorials, web, development, study, react, next, js, beginner, design, responsive, front-end, back-end";
   return (
     <div className="page">
       <Head>
