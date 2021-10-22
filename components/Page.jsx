@@ -8,38 +8,41 @@ export default function Page({ children }) {
     <div className="page">
       <Head>
         <title>Lernen | Learn Web Development with your Personal Tutor</title>
+        <meta property="al:web:url" content="https://lernen.vercel.app/" />
+
         <meta property="og:title" content="Lernen | Become a Web Developer" />
         <meta property="og:url" content="https://lernen.vercel.app/" />
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Lernen" />
+        <meta property="og:image" content="card.png" />
         <meta
-          name="description"
+          name="og:description"
           content="Learn just 2 hours a day to get a new income. Try for free and continue just at ₹100 per day."
         />
-        <link rel="apple-touch-icon" href="favcon.ico" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@lernen" />
+        <meta name="twitter:url" content="https://lernen.vercel.app/" />
+        <meta name="twitter:title" content="Lernen | Become a Web Developer" />
+        <meta
+          name="twitter:description"
+          content="Learn just 2 hours a day to get a new income. Try for free and continue just at ₹100 per day."
+        />
+        <meta name="twitter:image" content="card.png"/>
+
+        <meta itemprop="isFamilyFriendly" content="true" />
+
+        <link rel="image_src" href="favicon.ico"></link>
+        <link rel="apple-touch-icon" href="favicon.ico" />
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
         <link rel="icon" href="favicon.ico" />
-        <meta property="og:image" content="card.png" />
         <meta name="theme-color" content="rgb(0, 191, 111)" />
+
+        <meta
+          name="keywords"
+          content="html css javascript tutorials web development study react next js beginner design responsive front-end back-end"
+        ></meta>
       </Head>
-
-      {/* PLERDY  */}
-
-      <Script
-        type="text/javascript"
-        defer={true}
-        dangerouslySetInnerHTML={{
-          __html: `
-          var _protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-          var _site_hash_code = "387d3a4341852c8e256ae110678d8538";
-          var _suid = 20798;`,
-        }}
-      />
-
-      <Script
-        type="text/javascript"
-        defer={true}
-        src="https://a.plerdy.com/public/js/click/main.js"
-      />
 
       {/* MOUSE fLOW */}
 
@@ -74,54 +77,6 @@ export default function Page({ children }) {
               })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
         }}
       />
-
-      {/* SMARTLOOK */}
-
-      <Script
-        type="text/javascript"
-        defer={true}
-        dangerouslySetInnerHTML={{
-          __html: `window.smartlook || (function (d) {
-                    var o = smartlook = () => o.api.push(arguments);
-                    var h = d.getElementsByTagName('head')[0];
-                    var c = d.createElement('script');
-                    o.api = new Array();
-                    c.async = true;
-                    c.type = 'text/javascript';
-                    c.charset = 'utf-8';
-                    c.src = 'https://rec.smartlook.com/recorder.js';
-                    h.appendChild(c);
-                  })(document);
-                  smartlook('init', 'd125c3a92ffff36074366104a38f9858df55bc2c');`,
-        }}
-      />
-
-      {/* PIWIK PRO */}
-
-      <Script
-        type="text/javascript"
-        defer={true}
-        dangerouslySetInnerHTML={{
-          __html: `
-          (function(window, document, dataLayerName, id) {
-          window[dataLayerName]=window[dataLayerName]||[],window[dataLayerName].push({start:(new Date).getTime(),event:"stg.start"});var scripts=document.getElementsByTagName('script')[0],tags=document.createElement('script');
-          function stgCreateCookie(a,b,c){var d="";if(c){var e=new Date;e.setTime(e.getTime()+24*c*60*60*1e3),d="; expires="+e.toUTCString()}document.cookie=a+"="+b+d+"; path=/"}
-          var isStgDebug=(window.location.href.match("stg_debug")||document.cookie.match("stg_debug"))&&!window.location.href.match("stg_disable_debug");stgCreateCookie("stg_debug",isStgDebug?1:"",isStgDebug?14:-1);
-          var qP=[];dataLayerName!=="dataLayer"&&qP.push("data_layer_name="+dataLayerName),isStgDebug&&qP.push("stg_debug");var qPString=qP.length>0?("?"+qP.join("&")):"";
-          tags.async=!0,tags.src="https://lernen.containers.piwik.pro/"+id+".js"+qPString,scripts.parentNode.insertBefore(tags,scripts);
-          !function(a,n,i){a[n]=a[n]||{};for(var c=0;c<i.length;c++)!function(i){a[n][i]=a[n][i]||{},a[n][i].api=a[n][i].api||function(){var a=[].slice.call(arguments,0);"string"==typeof a[0]&&window[dataLayerName].push({event:n+"."+i+":"+a[0],parameters:[].slice.call(arguments,1)})}}(i[c])}(window,"ppms",["tm","cm"]);
-          })(window, document, 'dataLayer', 'dd403b4c-3b6b-45c0-a6b1-0b2095be1b67');
-          `,
-        }}
-      />
-      <noscript>
-        <iframe
-          src="https://lernen.containers.piwik.pro/dd403b4c-3b6b-45c0-a6b1-0b2095be1b67/noscript.html"
-          height="0"
-          width="0"
-          style={{ display: "none", visibility: "hidden" }}
-        ></iframe>
-      </noscript>
 
       <header className="flex stretch">
         <Link href="/">
