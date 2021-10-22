@@ -7,7 +7,7 @@ import { useRouter } from "next/dist/client/router";
 import { useContext, useState } from "react";
 import { store } from "../lib/store";
 import GenerateCourses from "../components/GenerateCourses";
-export default function SignUp() {
+export default function SignUpPage() {
   const router = useRouter();
   const { state, dispatch } = useContext(store);
   const [loading, setLoading] = useState(false);

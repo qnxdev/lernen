@@ -10,6 +10,7 @@ import Realtime from "../components/Realtime";
 
 export default function Home() {
   const { state, dispatch } = useContext(store);
+  const [showSignUp, setSignUp] = useState(false);
 
   useEffect(async () => {
     if (!state.sentAnalytics) {
@@ -17,6 +18,10 @@ export default function Home() {
       dispatch({ type: "analytics", payload: true });
     }
   }, []);
+
+  useEffect(() => {
+    return setTimeout(() => setSignUp(true), 2000);
+  });
 
   return (
     <div className="app">
@@ -39,6 +44,12 @@ export default function Home() {
           title="Technologies"
           text="Customise your learning experience.."
         />
+        <div className={`skipper ${showSignUp ? "show-skipper" : ""}`}>
+          <SignUp />
+          <div className="close">
+          <button>Go back & Select Courses</button>
+          </div>
+        </div>
       </Page>
       {state.selected.length !== 0 && (
         <div className="popup w100 flex">
