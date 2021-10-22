@@ -5,13 +5,15 @@ import Script from "next/script";
 
 export default function Page({ children }) {
   const title = "Lernen | Become a Web Developer",
-    description = "Learn just 2 hours a day to get a new income. Try for free and continue just at ₹100 per day.",
+    description =
+      "Learn just 2 hours a day to get a new income. Try for free and continue just at ₹100 per day.",
     icon = "card.jpg",
     site_name = "Lernen",
     url = "https://lernen.vercel.app/",
     favicon = "favicon.ico",
     theme = "rgb(0, 191, 111)",
-    keywords = "html, css, javascript, tutorials, web, development, study, react, next, js, beginner, design, responsive, front-end, back-end";
+    keywords =
+      "html, css, javascript, tutorials, web, development, study, react, next, js, beginner, design, responsive, front-end, back-end";
   return (
     <div className="page">
       <Head>
@@ -36,9 +38,10 @@ export default function Page({ children }) {
         <meta itemprop="isFamilyFriendly" content="true" />
 
         <link rel="image_src" href={icon} />
+        <link rel="icon" href={icon} />
+
         <link rel="apple-touch-icon" href={favicon} />
         <link rel="shortcut icon" href={favicon} type="image/x-icon" />
-        <link rel="icon" href={favicon} />
       </Head>
 
       {/* MOUSE fLOW */}
