@@ -4,44 +4,41 @@ import Head from "next/head";
 import Script from "next/script";
 
 export default function Page({ children }) {
+  const title = "Lernen | Become a Web Developer",
+    description = "Learn just 2 hours a day to get a new income. Try for free and continue just at ₹100 per day.",
+    icon = "card.jpg",
+    site_name = "Lernen",
+    url = "https://lernen.vercel.app/",
+    favicon = "favicon.ico",
+    theme = "rgb(0, 191, 111)",
+    keywords = "html, css, javascript, tutorials, web, development, study, react, next, js, beginner, design, responsive, front-end, back-end";
   return (
     <div className="page">
       <Head>
-        <title>Lernen | Learn Web Development with your Personal Tutor</title>
-        <meta property="al:web:url" content="https://lernen.vercel.app/" />
-
-        <meta property="og:title" content="Lernen | Become a Web Developer" />
-        <meta property="og:url" content="https://lernen.vercel.app/" />
+        <title>{title}</title>
+        <meta property="al:web:url" content={url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:url" content={url} />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Lernen" />
-        <meta property="og:image" content="card.png" />
-        <meta
-          name="og:description"
-          content="Learn just 2 hours a day to get a new income. Try for free and continue just at ₹100 per day."
-        />
+        <meta property="og:site_name" content={site_name} />
+        <meta property="og:image" content={icon} />
+        <meta name="og:description" content={description} />
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@lernen" />
-        <meta name="twitter:url" content="https://lernen.vercel.app/" />
-        <meta name="twitter:title" content="Lernen | Become a Web Developer" />
-        <meta
-          name="twitter:description"
-          content="Learn just 2 hours a day to get a new income. Try for free and continue just at ₹100 per day."
-        />
-        <meta name="twitter:image" content="card.png"/>
+        <meta name="twitter:url" content={url} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={icon} />
 
+        <meta name="theme-color" content={theme} />
+        <meta name="keywords" content={keywords} />
         <meta itemprop="isFamilyFriendly" content="true" />
 
-        <link rel="image_src" href="favicon.ico"></link>
-        <link rel="apple-touch-icon" href="favicon.ico" />
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="favicon.ico" />
-        <meta name="theme-color" content="rgb(0, 191, 111)" />
-
-        <meta
-          name="keywords"
-          content="html css javascript tutorials web development study react next js beginner design responsive front-end back-end"
-        ></meta>
+        <link rel="image_src" href={icon} />
+        <link rel="apple-touch-icon" href={favicon} />
+        <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+        <link rel="icon" href={favicon} />
       </Head>
 
       {/* MOUSE fLOW */}
