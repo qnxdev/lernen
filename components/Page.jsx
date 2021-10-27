@@ -5,8 +5,8 @@ import Script from "next/script";
 
 export default function Page({ children }) {
   const title = "Lernen | Become a Web Developer",
-    description = "Learn just 2 hours a day to get a new income. Try for free and continue just at ₹100 per day.",
-    icon = "/card.jpg",
+    description = "Learn just 2 hours a day to get a new income. Try free for first 3 days and Learn Web Development.",
+    icon = "https://lernen.vercel.app/card.jpg",
     site_name = "Lernen",
     url = "https://lernen.vercel.app/",
     favicon = "/favicon.ico",
