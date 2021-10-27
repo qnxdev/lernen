@@ -1,0 +1,115 @@
+.title a {
+  color: #0070f3;
+}
+.head {
+  border-bottom: 1px solid #ddd;
+  margin-top: 10px;
+}
+.head h4 {
+  margin: 10px;
+  padding: 0 10px;
+  border-left: 3px solid var(--theme1);
+  margin-left: 10%;
+  text-align: center;
+  font-size: 1.3rem;
+}
+.head p,
+.popup p {
+  color: #aaa;
+}
+.content {
+  padding: 20px;
+  justify-content: center;
+}
+.skipper {
+  width: 100%;
+  background: #00000066 !important;
+  backdrop-filter: blur(62px);
+  height: 100%;
+  padding-top: 40px !important;
+  display: none !important;
+  z-index: 20 !important;
+}
+.show-skipper {
+  display: block !important;
+}
+
+.skip-content {
+  margin: auto;
+  background-color: #fff;
+  max-width: 500px;
+  height: fit-content;
+  border-radius: 30px;
+}
+
+.skip-content .close button {
+  margin: 20px;
+  margin-bottom: 0px;
+}
+
+.skip-content .form{
+  padding: 4% 2%;
+  height: unset;
+}
+
+.skipper,
+.popup {
+  animation: show 0.2s ease-in;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  background-color: white;
+  padding: 10px 0px;
+  justify-content: center;
+  box-shadow: var(--boxShadow);
+  border-bottom: 5px solid var(--theme1);
+  z-index: 10;
+}
+
+@keyframes show {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.expand {
+  justify-content: center;
+  padding: 10px 0px;
+}
+
+@media (max-width: 700px) {
+  .skipper{
+    backdrop-filter: blur(10px);
+    min-width: 300px;
+  }
+  .skip-content{
+    max-width: 100%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .skip-content .close{
+    display: flex;
+    justify-content: center;
+  }
+  .skip-content .form{
+    padding: 4% 8% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .head {
+    flex-direction: column;
+  }
+  .head h4,
+  .head p {
+    margin: 5px;
+    margin-left: 20px;
+    align-self: flex-start;
+  }
+}

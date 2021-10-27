@@ -6,9 +6,11 @@ import { store } from "../lib/store";
 import Link from "next/link";
 import Button from "../components/Button";
 import Realtime from "../components/Realtime";
+import SignUp from "../components/SignUp";
 
 export default function Home() {
   const { state, dispatch } = useContext(store);
+  const [showSignUp, setSignUp] = useState(false);
 
   useEffect(async () => {
     if (!state.sentAnalytics) {
@@ -17,6 +19,9 @@ export default function Home() {
     }
   }, []);
 
+  useEffect(() => {
+    return setTimeout(() => setSignUp(true), 2000);
+  },[]);
   return (
     <div className="app">
       <Page>
@@ -32,6 +37,19 @@ export default function Home() {
           title="Technologies"
           text="Customise your learning experience.."
         />
+        <div className={`skipper ${showSignUp ? "show-skipper" : ""}`}>
+          <div className="skip-content">
+          <div className="close">
+            <button
+              className="button"
+              onClick={() => setSignUp(false)}
+            >
+              Go back & Select Courses
+            </button>
+          </div>
+          <SignUp />
+          </div>
+        </div>
       </Page>
       {state.selected.length !== 0 && (
         <div className="popup w100 flex">

@@ -1,10 +1,11 @@
 import "../styles/globals.css";
-import "../styles/Home.css";
-import "../styles/Thanks.css";
+import "../styles/HomePage.css";
+import "../styles/ThanksPage.css";
 import "../styles/Page.css";
 import "../styles/Button.css";
 import "../styles/Item.css";
-import "../styles/SignUp.css";
+import "../styles/SignUpPage.css";
+import "../styles/ContactPage.css";
 import "../styles/List.css";
 import { StateProvider } from "../lib/store";
 

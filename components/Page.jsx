@@ -5,8 +5,8 @@ import Script from "next/script";
 
 export default function Page({ children }) {
   const title = "Lernen | Become a Web Developer",
-    description = "Learn just 2 hours a day to get a new income. Try for free and continue just at ₹100 per day.",
-    icon = "/card.jpg",
+    description = "Learn just 2 hours a day to get a new income. Try free for first 3 days and Learn Web Development.",
+    icon = "https://lernen.vercel.app/card.jpg",
     site_name = "Lernen",
     url = "https://lernen.vercel.app/",
     favicon = "/favicon.ico",
@@ -33,7 +33,7 @@ export default function Page({ children }) {
 
         <meta name="theme-color" content={theme} />
         <meta name="keywords" content={keywords} />
-        <meta itemprop="isFamilyFriendly" content="true" />
+        <meta itemProp="isFamilyFriendly" content="true" />
 
         <link rel="image_src" href={icon} />
         <link rel="icon" href={icon} />
@@ -83,7 +83,7 @@ export default function Page({ children }) {
           </h1>
         </Link>
         <div className="flex">
-          <Link href="/">
+          <Link href="/contact">
             <a>
               <button className="contact">Contact Us</button>
             </a>
@@ -98,8 +98,13 @@ export default function Page({ children }) {
 
       <main className="main">{children}</main>
 
-      <footer className="footer">
-        &copy; {new Date().getFullYear()} Lernen.
+      <footer className="footer flex">
+          <Link href="/contact">
+            <a>
+              <button className="contact">Contact Us</button>
+            </a>
+          </Link>
+        <span>&copy; {new Date().getFullYear()} Lernen.</span>
       </footer>
     </div>
   );
