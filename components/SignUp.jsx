@@ -1,7 +1,6 @@
-
 import Button from "../components/Button";
 import Input from "../components/Input";
-import {  countries } from "../lib/lists";
+import { countries } from "../lib/lists";
 import { useRouter } from "next/dist/client/router";
 import { useContext, useState } from "react";
 import { store } from "../lib/store";
@@ -45,7 +44,11 @@ export default function SignUp() {
           headers: {
             "content-type": "application/json",
           },
-          body: JSON.stringify({ ...user, courses: courses }),
+          body: JSON.stringify({
+            ...user,
+            courses: courses,
+            time: new Date().toString(),
+          }),
         });
         const data = await promise.json();
         if (data.id) {
@@ -115,9 +118,11 @@ export default function SignUp() {
           </option>
         ))}
       </select>
-      {(loading || message !="") && <p className="error">
-        {loading ? "Please wait.." : message != "" ? message : ""}
-      </p>}
+      {(loading || message != "") && (
+        <p className="error">
+          {loading ? "Please wait.." : message != "" ? message : ""}
+        </p>
+      )}
       <Button handleClick={onSubmit}>Sign Up</Button>
     </div>
   );

@@ -3,7 +3,7 @@ import firebaseAdminInit from "../../lib/firebaseAdmin";
 
 export default async (req, res) => {
   if (req.method == "POST") {
-    const { name, email, phone, courses } = req.body;
+    const { name, email, phone, country, courses, time } = req.body;
 
     try {
       const firebase = firebaseAdminInit();
@@ -14,8 +14,10 @@ export default async (req, res) => {
           uid: newUser.id,
           name: name,
           email: email,
-          phone: phone,
+          phone: country + phone,
           courses: courses,
+          country: country,
+          time: time,
         });
         res.send({ id: await newUser.id });
       } else {
