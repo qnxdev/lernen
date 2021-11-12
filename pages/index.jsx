@@ -5,7 +5,6 @@ import { bundles, techs } from "../lib/lists";
 import { store } from "../lib/store";
 import Link from "next/link";
 import Button from "../components/Button";
-import Realtime from "../components/Realtime";
 import SignUp from "../components/SignUp";
 import Referlink from "../components/Referlink";
 
@@ -26,7 +25,7 @@ export default function Home() {
   return (
     <div className="app">
       <Page>
-        <Referlink />
+  
         <ListSection
           className="bundles"
           items={bundles}

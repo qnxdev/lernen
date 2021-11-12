@@ -14,15 +14,15 @@ export default async (req, res) => {
 
       if (country && phone && time) {
         const newId = nanoid();
-        const AddingReferer = {
+        const AddingReferrer = {
           id: newId,
           country,
           phone: country + phone,
           time,
         };
-        const newReferer = await db.collection("/referers").doc();
-        await newReferer.set(AddingReferer);
-        res.send(AddingReferer);
+        const newReferrer = await db.collection("/referrers").doc();
+        await newReferrer.set(AddingReferrer);
+        res.send(AddingReferrer);
       } else {
         res.send({ error: true, check: true });
       }

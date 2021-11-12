@@ -8,6 +8,7 @@
   padding: 20px 0px;
   text-align: center;
 }
+
 .refer-form button {
   margin-top: 20px;
 }
@@ -18,11 +19,7 @@
   align-items: flex-start;
 }
 
-.copy-wrap .content {
-  
-}
-
-.copy-wrap {
+.share-wrap {
   border-right: 3px solid var(--theme1);
   min-height: 75vh;
   justify-content: flex-start;
@@ -33,32 +30,48 @@
   padding-bottom: 20px;
 }
 
-.ref-page .copy-wrap button {
-  margin-top: 20px;
+.copy-btn button {
+  margin-left: 10px;
+  padding: 0.7rem 1.5rem;
+  width: 50%;
 }
 
-.ref-page .share-wrap button {
-  margin-bottom: 20px;
-}
-
-.ref-page label p {
-  text-align: center;
-  margin: 20px 0px;
-  font-size: 1.3rem;
+.copy-btn {
+  width: 400px;
+  max-width: 100%;
 }
 
 .ref-page input {
   color: var(--theme1);
-  font-size: 1.1rem !important;
-  border-radius: 5px !important;
-  text-decoration: underline;
+  font-size: 1.1rem;
+  padding: 0.7rem 1.5rem;
+  margin: 5px 0px;
+  border-radius: 30px;
+  border: 2px solid var(--theme1);
+  background-color: transparent;
+  width: 100%;
+  font-weight: bold;
+}
+
+.label {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 500px) {
+  .copy-btn {
+    flex-direction: column;
+  }
+  .copy-btn button {
+    margin-top: 15px;
+    width: 100%;
+  }
 }
 
 @media (max-width: 900px) {
   .ref-page {
     flex-direction: column;
   }
-  .copy-wrap {
+  .share-wrap {
     border-right: none;
     border-bottom: 2px solid var(--theme1);
   }

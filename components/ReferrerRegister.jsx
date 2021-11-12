@@ -3,8 +3,8 @@ import Button from "./Button";
 import Input from "./Input";
 import CountrySelect from "./CountrySelect";
 
-export default function RefererRegister({ setLoggedReferer }) {
-  const [newReferer, setNewReferer] = useState({
+export default function ReferrerRegister({ setLoggedReferrer }) {
+  const [newReferrer, setNewReferrer] = useState({
     country: "+91",
     phone: "",
   });
@@ -14,21 +14,21 @@ export default function RefererRegister({ setLoggedReferer }) {
   async function handleSubmit(e) {
     setLoading(true);
     const regex = /^\s*$/g;
-    if (newReferer.phone.match(regex)) {
+    if (newReferrer.phone.match(regex)) {
       setMessage("Mobile Number is required.");
-    } else if (newReferer.country.match(regex)) {
+    } else if (newReferrer.country.match(regex)) {
       setMessage("Country is required.");
     } else {
       setMessage("");
 
       try {
-        const promise = await fetch("/api/createReferer", {
+        const promise = await fetch("/api/createReferrer", {
           method: "POST",
           headers: {
             "content-type": "application/json",
           },
           body: JSON.stringify({
-            ...newReferer,
+            ...newReferrer,
             time: new Date().toString(),
           }),
         });
@@ -36,13 +36,13 @@ export default function RefererRegister({ setLoggedReferer }) {
         if (data.id) {
           //set cookie
           try {
-            if (document) {
-              document.cookie = "LERNEN_RD=" + data.id + "; path=/";
+            if (document.cookie) {
+              document.cookie = `LERNEN_RD=${data.id};`;
             }
           } catch (error) {
             alert("Please enable cookies.");
           }
-          setLoggedReferer(data);
+          setLoggedReferrer(data);
         } else {
           setMessage("An error occured.");
         }
@@ -54,18 +54,20 @@ export default function RefererRegister({ setLoggedReferer }) {
   }
   return (
     <div className="refer-form w100 flex col justify-center">
-      <h2>Register as a Referer</h2>
+      <h2>Register as a Referrer</h2>
       <Input
         label="Mobile number"
-        placeholder="mobile number"
+        placeholder="Mobile number"
         type="number"
-        value={newReferer.phone}
-        onInput={(e) => setNewReferer({ ...newReferer, phone: e.target.value })}
+        value={newReferrer.phone}
+        onInput={(e) =>
+          setNewReferrer({ ...newReferrer, phone: e.target.value })
+        }
       />
       <CountrySelect
-        value={newReferer.country}
+        value={newReferrer.country}
         onChange={(e) =>
-          setNewReferer({ ...newReferer, country: e.target.value })
+          setNewReferrer({ ...newReferrer, country: e.target.value })
         }
       />
       {(loading || message != "") && (

@@ -1,36 +1,38 @@
 import Page from "../components/Page";
-import RefererRegister from "../components/RefererRegister";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { useEffect, useState } from "react";
 import ShareButton from "../components/ShareButton";
 import firebaseAdminInit from "../lib/firebaseAdmin";
 import { getFirestore } from "firebase-admin/firestore";
+import ReferrerRegister from "../components/ReferrerRegister";
 
 export const getServerSideProps = async ({ req }) => {
-  const cookieId = req.cookies.LERNEN_RD;
-  if (cookieId) {
+  const LERNEN_RD = req.cookies.LERNEN_RD;
+  if (LERNEN_RD) {
     const firebase = await firebaseAdminInit();
     const db = await getFirestore(firebase);
-    const collectionRef = await db.collection("referers");
-    const queryRef = await collectionRef.where("id", "==", cookieId);
-    const response = await queryRef.get();
+    const response = await db
+      .collection("referrers")
+      .where("id", "==", LERNEN_RD)
+      .get();
     let data;
-    response.forEach((doc) => (data = doc.data()));
+    await response.forEach((doc) => (data = doc.data()));
     if (data) return { props: { referrer: data } };
   }
   return { props: { referrer: { id: null } } };
 };
 
 export default function RefererPage({ referrer }) {
-  const [LoggedReferer, setLoggedReferer] = useState(referrer);
+  const [LoggedReferrer, setLoggedReferrer] = useState(referrer);
+  
 
   return (
-    <Page>
-      {LoggedReferer.id ? (
-        <DashBoard referrer={LoggedReferer} />
+    <Page refLink={false}>
+      {LoggedReferrer.id ? (
+        <DashBoard referrer={LoggedReferrer} />
       ) : (
-        <RefererRegister setLoggedReferer={setLoggedReferer} />
+        <ReferrerRegister setLoggedReferrer={setLoggedReferrer} />
       )}
     </Page>
   );
@@ -47,7 +49,7 @@ const DashBoard = ({ referrer }) => {
   const refUrl = `https://lernen.vercel.app?ref=${referrer.id}`;
 
   const ShareTitle = `Lernen`;
-  const ShareText = `Hey you shoud try Lernen \n`;
+  const ShareText = `Hey Lernen is the best \n`;
 
   const shareData = {
     title: ShareTitle,
@@ -57,9 +59,10 @@ const DashBoard = ({ referrer }) => {
 
   function CopyText() {
     if (!copyStatus) {
-      navigator.clipboard.writeText(refUrl)
+      navigator.clipboard
+        .writeText(refUrl)
         .then(() => {
-          console.log('succesfull copy');
+          console.log("succesfull copy");
           setCopyStatus(true);
           setTimeout(() => setCopyStatus(false), 1000);
         })
@@ -68,7 +71,8 @@ const DashBoard = ({ referrer }) => {
   }
 
   function WebShare() {
-    navigator.share(shareData)
+    navigator
+      .share(shareData)
       .then(() => {
         console.log("Thank you For Sharing");
       })
@@ -77,22 +81,24 @@ const DashBoard = ({ referrer }) => {
 
   return (
     <div className="ref-page flex">
-      <div className="copy-wrap w100 flex justify-center col">
+      <div className="share-wrap w100 flex justify-center col">
         <h2 className="margin0 tc w100 header">Dashboard</h2>
         <div className="w100 flex justify-center col content">
-          <Input label="Your Referel Link" value={refUrl} readOnly={true} />
-          <Button handleClick={CopyText}>
-            {copyStatus ? "Copied" : "Copy"}
-          </Button>
-        </div>
-        <h2 className="tc w100 margin0 header">Your Referal Earnigs</h2>
-        <div className="earnigs content">
-          <h2 className="margin0">Total : $500</h2>
-        </div>
-      </div>
-      <div className="share-wrap w100 flex justify-center col light">
-        <h2 className="margin0 tc w100 header">Share Lernen</h2>
-        <div className="flex col w100 content">
+          <h2 className="margin0">Earned : $500</h2>
+          {/* <Input label="Your Referrel Link" value={refUrl} readOnly={true} /> */}
+          <h2 className="label">Your Referrel Link</h2>
+          <div className="copy-btn flex ">
+            <input
+              className="w100 tc"
+              type="text"
+              readOnly={true}
+              value={refUrl}
+            />
+            <Button handleClick={CopyText}>
+              {copyStatus ? "Copied" : "Copy"}
+            </Button>
+          </div>
+
           {webShare && (
             <Button handleClick={WebShare}>Share Lernen And Earn</Button>
           )}
@@ -112,6 +118,10 @@ const DashBoard = ({ referrer }) => {
             color="rgb(46 187 255)"
           />
         </div>
+      </div>
+      <div className="earn-wrap w100 flex justify-center col light">
+        <h2 className="tc w100 margin0 header">Your Referral Earnigs</h2>
+        <div className="earnigs content"></div>
       </div>
     </div>
   );
