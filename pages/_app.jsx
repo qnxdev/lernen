@@ -7,6 +7,11 @@ import "../styles/Item.css";
 import "../styles/SignUpPage.css";
 import "../styles/ContactPage.css";
 import "../styles/List.css";
+import "../styles/RefererPage.css";
+import "../styles/Input.css";
+import "../styles/CountrySelect.css"
+import "../styles/ReferalLink.css"
+import "../styles/ShareBtn.css"
 import { StateProvider } from "../lib/store";
 
 /*Main App File - This is not a page*/

@@ -1,15 +1,15 @@
 import Button from "../components/Button";
 import Input from "../components/Input";
-import { countries } from "../lib/lists";
 import { useRouter } from "next/dist/client/router";
 import { useContext, useState } from "react";
 import { store } from "../lib/store";
 import GenerateCourses from "../components/GenerateCourses";
+import CountrySelect from "./CountrySelect";
 export default function SignUp() {
   const router = useRouter();
-  const { state, dispatch } = useContext(store);
-  const [loading, setLoading] = useState(false);
+  const { state } = useContext(store);
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -17,7 +17,7 @@ export default function SignUp() {
     country: "+91",
     courses: [],
   });
-
+  //console.log(router.query);
   const onInput = (e, prop) => {
     setUser({ ...user, [prop]: e.target.value });
   };
@@ -27,8 +27,8 @@ export default function SignUp() {
   // }, [user]);
 
   const onSubmit = async () => {
-    const regex = /^\s*$/g;
     setLoading(true);
+    const regex = /^\s*$/g;
     if (user.name.match(regex)) {
       setMessage("Name is required.");
     } else if (user.email.match(regex)) {
@@ -38,6 +38,7 @@ export default function SignUp() {
     } else {
       setMessage("");
       const courses = GenerateCourses(state.selected);
+      
       try {
         const promise = await fetch("/api/create", {
           method: "POST",
@@ -78,14 +79,12 @@ export default function SignUp() {
       <Input
         label="Name"
         placeholder="Full Name"
-        type="text"
         value={user.name}
         onInput={(e) => onInput(e, "name")}
       />
       <Input
         label="Email ID"
         placeholder="Email ID"
-        type="text"
         value={user.email}
         onInput={(e) => onInput(e, "email")}
       />
@@ -96,28 +95,13 @@ export default function SignUp() {
         value={user.phone}
         onInput={(e) => onInput(e, "phone")}
       />
-      <h4>Country</h4>
-      <select
-        className="custom-scroll"
-        id="countries"
+      <CountrySelect
         value={user.country}
         onChange={(e) => {
           onInput(e, "country");
           //showList(false);
         }}
-      >
-        <option key="s" className="option1" value={undefined}>
-          Select Country
-        </option>
-        <option key="k" value="+91">
-          +91 - India
-        </option>
-        {JSON.parse(countries).map((i, k) => (
-          <option key={k} value={i.c} defaultValue={i.n}>
-            {i.c + " - " + i.n}
-          </option>
-        ))}
-      </select>
+      />
       {(loading || message != "") && (
         <p className="error">
           {loading ? "Please wait.." : message != "" ? message : ""}

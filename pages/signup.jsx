@@ -1,6 +1,4 @@
 import Page from "../components/Page";
-import Button from "../components/Button";
-import Input from "../components/Input";
 import List from "../components/List";
 import { bundles, countries, techs } from "../lib/lists";
 import { useRouter } from "next/dist/client/router";
@@ -8,10 +6,12 @@ import { useContext, useState } from "react";
 import { store } from "../lib/store";
 import GenerateCourses from "../components/GenerateCourses";
 import SignUp from "../components/SignUp";
+import Referlink from "../components/Referlink";
 export default function SignUpPage() {
 
   return (
     <Page>
+      <Referlink />
       <div className="container flex">
         <SignUp />
         <div className="flex col-wrap">

@@ -1,9 +1,11 @@
 import Link from "next/link";
 import Page from "../components/Page";
+import Referlink from "../components/Referlink";
 
 export default function ContactPage(params) {
   return (
     <Page>
+      <Referlink />
       <div className="contact-page flex">
         <a className="contact-item" href="mailto:dev.qnx@gmail.com">
           <h4>Email</h4>

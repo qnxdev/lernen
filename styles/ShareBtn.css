@@ -1,0 +1,13 @@
+.share-btn {
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 1px 0px 20px 8px rgb(92 92 92 / 12%);
+  width: 400px;
+  max-width: 100%;
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: block;
+  color: white;
+}
+

@@ -7,6 +7,7 @@ import Link from "next/link";
 import Button from "../components/Button";
 import Realtime from "../components/Realtime";
 import SignUp from "../components/SignUp";
+import Referlink from "../components/Referlink";
 
 export default function Home() {
   const { state, dispatch } = useContext(store);
@@ -14,17 +15,18 @@ export default function Home() {
 
   useEffect(async () => {
     if (!state.sentAnalytics) {
-      await Realtime();
+      //await Realtime();
       dispatch({ type: "analytics", payload: true });
     }
   }, []);
 
   useEffect(() => {
     return setTimeout(() => setSignUp(true), 2000);
-  },[]);
+  }, []);
   return (
     <div className="app">
       <Page>
+        <Referlink />
         <ListSection
           className="bundles"
           items={bundles}
@@ -38,16 +40,14 @@ export default function Home() {
           text="Customise your learning experience.."
         />
         <div className={`skipper ${showSignUp ? "show-skipper" : ""}`}>
+          <Referlink />
           <div className="skip-content">
-          <div className="close">
-            <button
-              className="button"
-              onClick={() => setSignUp(false)}
-            >
-              Go back & Select Courses
-            </button>
-          </div>
-          <SignUp />
+            <div className="close">
+              <button className="button" onClick={() => setSignUp(false)}>
+                Go back & Select Courses
+              </button>
+            </div>
+            <SignUp />
           </div>
         </div>
       </Page>

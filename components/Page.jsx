@@ -3,15 +3,18 @@ import Link from "next/link";
 import Head from "next/head";
 import Script from "next/script";
 
+
 export default function Page({ children }) {
   const title = "Lernen | Become a Web Developer",
-    description = "Learn just 2 hours a day to get a new income. Try free for first 3 days and Learn Web Development.",
+    description =
+      "Learn just 2 hours a day to get a new income. Try free for first 3 days and Learn Web Development.",
     icon = "https://lernen.vercel.app/card.jpg",
     site_name = "Lernen",
     url = "https://lernen.vercel.app/",
     favicon = "/favicon.ico",
     theme = "rgb(0, 191, 111)",
-    keywords = "html, css, javascript, tutorials, web, development, study, react, next, js, beginner, design, responsive, front-end, back-end";
+    keywords =
+      "html, css, javascript, tutorials, web, development, study, react, next, js, beginner, design, responsive, front-end, back-end";
   return (
     <div className="page">
       <Head>
@@ -44,7 +47,7 @@ export default function Page({ children }) {
 
       {/* MOUSE fLOW */}
 
-      <Script
+      {/* <Script
         type="text/javascript"
         defer={true}
         dangerouslySetInnerHTML={{
@@ -57,11 +60,11 @@ export default function Page({ children }) {
                     document.getElementsByTagName("head")[0].appendChild(mf);
                   })();`,
         }}
-      />
+      /> */}
 
       {/* HOTJAR */}
 
-      <Script
+      {/* <Script
         type="text/javascript"
         defer={true}
         dangerouslySetInnerHTML={{
@@ -74,7 +77,7 @@ export default function Page({ children }) {
                   a.appendChild(r);
               })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
         }}
-      />
+      /> */}
 
       <header className="flex stretch">
         <Link href="/">
@@ -95,15 +98,14 @@ export default function Page({ children }) {
           </Link>
         </div>
       </header>
-
       <main className="main">{children}</main>
 
       <footer className="footer flex">
-          <Link href="/contact">
-            <a>
-              <button className="contact">Contact Us</button>
-            </a>
-          </Link>
+        <Link href="/contact">
+          <a>
+            <button className="contact">Contact Us</button>
+          </a>
+        </Link>
         <span>&copy; {new Date().getFullYear()} Lernen.</span>
       </footer>
     </div>

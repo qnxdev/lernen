@@ -26,7 +26,6 @@
   background: #00000066 !important;
   backdrop-filter: blur(62px);
   height: 100%;
-  padding-top: 40px !important;
   display: none !important;
   z-index: 20 !important;
 }
@@ -35,6 +34,7 @@
 }
 
 .skip-content {
+  margin-top: 40px !important;
   margin: auto;
   background-color: #fff;
   max-width: 500px;
@@ -47,7 +47,7 @@
   margin-bottom: 0px;
 }
 
-.skip-content .form{
+.skip-content .form {
   padding: 4% 2%;
   height: unset;
 }
@@ -81,11 +81,11 @@
 }
 
 @media (max-width: 700px) {
-  .skipper{
+  .skipper {
     backdrop-filter: blur(10px);
     min-width: 300px;
   }
-  .skip-content{
+  .skip-content {
     max-width: 100%;
     position: absolute;
     bottom: 0;
@@ -93,11 +93,11 @@
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
   }
-  .skip-content .close{
+  .skip-content .close {
     display: flex;
     justify-content: center;
   }
-  .skip-content .form{
+  .skip-content .form {
     padding: 4% 8% !important;
   }
 }

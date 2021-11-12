@@ -1,5 +1,6 @@
 import { getFirestore } from "firebase-admin/firestore";
 import firebaseAdminInit from "../../lib/firebaseAdmin";
+
 export default async (req, res) => {
   const { ua } = req.query;
 

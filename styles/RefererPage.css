@@ -1,0 +1,65 @@
+.refer-form {
+  padding: 20px;
+  min-height: 450px;
+  max-height: 100%;
+}
+.refer-form h2,
+.refer-form .h4 {
+  padding: 20px 0px;
+  text-align: center;
+}
+.refer-form button {
+  margin-top: 20px;
+}
+
+.ref-page {
+  padding: 0px 20px;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.copy-wrap .content {
+  
+}
+
+.copy-wrap {
+  border-right: 3px solid var(--theme1);
+  min-height: 75vh;
+  justify-content: flex-start;
+}
+
+.ref-page .header {
+  padding: 20px 0px;
+  padding-bottom: 20px;
+}
+
+.ref-page .copy-wrap button {
+  margin-top: 20px;
+}
+
+.ref-page .share-wrap button {
+  margin-bottom: 20px;
+}
+
+.ref-page label p {
+  text-align: center;
+  margin: 20px 0px;
+  font-size: 1.3rem;
+}
+
+.ref-page input {
+  color: var(--theme1);
+  font-size: 1.1rem !important;
+  border-radius: 5px !important;
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .ref-page {
+    flex-direction: column;
+  }
+  .copy-wrap {
+    border-right: none;
+    border-bottom: 2px solid var(--theme1);
+  }
+}

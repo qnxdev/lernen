@@ -1,0 +1,38 @@
+.country-select,
+.select-label {
+  align-items: flex-start !important;
+  max-width: 400px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: left;
+}
+.select-label {
+  margin: 0px;
+  width: 100%;
+}
+
+.country-select:focus {
+  outline: none;
+}
+
+.country-select .option1 {
+  color: var(--theme1);
+}
+
+.country-select option {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.country-select {
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin: 5px 0px;
+  border-radius: 15px;
+  border: 2px solid var(--theme1);
+  background-color: transparent;
+  width: 100%;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.6);
+  appearance: none;
+}
