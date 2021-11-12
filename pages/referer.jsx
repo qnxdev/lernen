@@ -41,7 +41,7 @@ const DashBoard = ({ referrer }) => {
   const [share, setShare] = useState(false);
 
   useEffect(() => {
-    setShare(navigator.share !== undefined);
+    setShare("share" in navigator);
   }, []);
 
   const refUrl = `https://lernen.vercel.app?ref=${referrer.id}`;
@@ -96,7 +96,7 @@ const DashBoard = ({ referrer }) => {
           Share Lernen via social medias
         </h2>
         <div className="flex col w100 content">
-          {!share && (
+          {share && (
             <Button handleClick={WebShare}>Share Lernen And Earn</Button>
           )}
           <ShareButton
