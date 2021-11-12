@@ -31,6 +31,7 @@
 }
 
 .copy-btn button {
+  margin: 15px 0px;
   margin-left: 10px;
   padding: 0.7rem 1.5rem;
   width: 50%;
@@ -39,6 +40,14 @@
 .copy-btn {
   width: 400px;
   max-width: 100%;
+}
+
+.ref-page button:nth-child(4) {
+  padding: 0.7rem 1.5rem;
+  margin: 15px 0px;
+  width: 400px;
+  max-width: 100%;
+  font-size: 1.2rem;
 }
 
 .ref-page input {
@@ -64,6 +73,7 @@
   .copy-btn button {
     margin-top: 15px;
     width: 100%;
+    margin-left: 0px;
   }
 }
 
