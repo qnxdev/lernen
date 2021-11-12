@@ -38,10 +38,10 @@ export default function RefererPage({ referrer }) {
 
 const DashBoard = ({ referrer }) => {
   const [copyStatus, setCopyStatus] = useState(false);
-  const [share, setShare] = useState(false);
+  const [webShare, setWebShare] = useState(false);
 
   useEffect(() => {
-    setShare("share" in navigator);
+    setWebShare("share" in navigator);
   }, []);
 
   const refUrl = `https://lernen.vercel.app?ref=${referrer.id}`;
@@ -52,29 +52,27 @@ const DashBoard = ({ referrer }) => {
   const shareData = {
     title: ShareTitle,
     text: ShareText,
-    url: refUrl
+    url: refUrl,
   };
 
-  async function CopyText() {
+  function CopyText() {
     if (!copyStatus) {
-      try {
-        await navigator.clipboard.writeText(refUrl);
-        setCopyStatus(true);
-        setTimeout(() => setCopyStatus(false), 2000);
-      } catch (err) {
-        console.log(err);
-        alert("Clipboard is not available");
-      }
+      navigator.clipboard.writeText(refUrl)
+        .then(() => {
+          console.log('succesfull copy');
+          setCopyStatus(true);
+          setTimeout(() => setCopyStatus(false), 1000);
+        })
+        .catch(console.error);
     }
   }
 
-  async function WebShare() {
-    try {
-      await navigator.share(shareData);
-    } catch (err) {
-      console.log(err);
-      alert("Share is not available");
-    }
+  function WebShare() {
+    navigator.share(shareData)
+      .then(() => {
+        console.log("Thank you For Sharing");
+      })
+      .catch(console.error);
   }
 
   return (
@@ -93,11 +91,9 @@ const DashBoard = ({ referrer }) => {
         </div>
       </div>
       <div className="share-wrap w100 flex justify-center col light">
-        <h2 className="margin0 tc w100 header">
-          Share Lernen
-        </h2>
+        <h2 className="margin0 tc w100 header">Share Lernen</h2>
         <div className="flex col w100 content">
-          {share && (
+          {webShare && (
             <Button handleClick={WebShare}>Share Lernen And Earn</Button>
           )}
           <ShareButton
