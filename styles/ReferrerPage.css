@@ -30,10 +30,15 @@
   padding-bottom: 20px;
 }
 
-.copy-btn button {
+.ref-page button {
+  box-shadow: 1px 0px 20px 8px rgb(92 92 92 / 20%);
+  font-size: 1.2rem;
   margin: 15px 0px;
-  margin-left: 10px;
   padding: 0.7rem 1.5rem;
+}
+
+.copy-btn button {
+  margin-left: 10px;
   width: 50%;
 }
 
@@ -43,11 +48,8 @@
 }
 
 .ref-page button:nth-child(4) {
-  padding: 0.7rem 1.5rem;
-  margin: 15px 0px;
   width: 400px;
   max-width: 100%;
-  font-size: 1.2rem;
 }
 
 .ref-page input {
