@@ -37,7 +37,7 @@ export default function ReferrerRegister({ setLoggedReferrer }) {
           //set cookie
           try {
             if (document.cookie) {
-              document.cookie = `LERNEN_RD=${data.id};`;
+              document.cookie = `LERNEN_RD=${data.id}; path=/;`;
             }
           } catch (error) {
             alert("Please enable cookies.");
