@@ -46,12 +46,13 @@ const DashBoard = ({ referrer }) => {
 
   const refUrl = `https://lernen.vercel.app?ref=${referrer.id}`;
 
-  const ShareText = `Hey you shoud try Lernen \n ${refUrl}`;
+  const ShareTitle = `Lernen`;
+  const ShareText = `Hey you shoud try Lernen \n`;
 
   const shareData = {
-    title: "Lernen",
+    title: ShareTitle,
     text: ShareText,
-    url: `https://lernen.vercel.app?ref=${referrer.id}`,
+    url: refUrl
   };
 
   async function CopyText() {
@@ -93,7 +94,7 @@ const DashBoard = ({ referrer }) => {
       </div>
       <div className="share-wrap w100 flex justify-center col light">
         <h2 className="margin0 tc w100 header">
-          Share Lernen via social medias
+          Share Lernen
         </h2>
         <div className="flex col w100 content">
           {share && (
@@ -106,7 +107,7 @@ const DashBoard = ({ referrer }) => {
           />
           <ShareButton
             name="WhatsApp"
-            link={`whatsapp://send?text=${ShareText}`}
+            link={`whatsapp://send?text=${ShareText + refUrl}`}
             color="#59de71"
           />
           <ShareButton

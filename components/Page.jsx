@@ -3,7 +3,6 @@ import Link from "next/link";
 import Head from "next/head";
 import Script from "next/script";
 
-
 export default function Page({ children }) {
   const title = "Lernen | Become a Web Developer",
     description =
