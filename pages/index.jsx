@@ -39,7 +39,7 @@ export default function Home() {
           text="Customise your learning experience.."
         />
         <div className={`skipper ${showSignUp ? "show-skipper" : ""}`}>
-          <Referlink />
+          {!state.referrer.id && <Referlink />}
           <div className="skip-content">
             <div className="close">
               <button className="button" onClick={() => setSignUp(false)}>
