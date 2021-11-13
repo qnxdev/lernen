@@ -12,7 +12,7 @@ export default function ListSection({ className, items, title, text }) {
         <p>{text}</p>
       </div>
       <div className="content flex">
-        <List items={show ? items : items.slice(0,3)} />
+        <List items={show ? items : items.slice(0, 3)} />
       </div>
       <div className="expand flex">
         <Button handleClick={() => setShow(!show)}>

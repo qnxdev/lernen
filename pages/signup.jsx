@@ -1,13 +1,8 @@
 import Page from "../components/Page";
 import List from "../components/List";
-import { bundles, countries, techs } from "../lib/lists";
-import { useRouter } from "next/dist/client/router";
-import { useContext, useState } from "react";
-import { store } from "../lib/store";
-import GenerateCourses from "../components/GenerateCourses";
+import { bundles, techs } from "../lib/lists";
 import SignUp from "../components/SignUp";
 export default function SignUpPage() {
-
   return (
     <Page>
       <div className="container flex">

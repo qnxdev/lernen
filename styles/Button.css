@@ -17,7 +17,7 @@
   color: var(--theme1);
 }
 
-.button:focus{
+.button:focus {
   outline: none;
 }
 

@@ -3,13 +3,8 @@ import Link from "next/link";
 import Head from "next/head";
 import Script from "next/script";
 import Referlink from "../components/Referlink";
-import { store } from "../lib/store";
-import { useContext } from "react";
-
 
 export default function Page({ children, refLink = true }) {
-  const { state } = useContext(store);
-
   const title = "Lernen | Become a Web Developer",
     description =
       "Learn just 2 hours a day to get a new income. Try free for first 3 days and Learn Web Development.",

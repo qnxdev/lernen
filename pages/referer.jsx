@@ -1,5 +1,4 @@
 import Page from "../components/Page";
-import Input from "../components/Input";
 import Button from "../components/Button";
 import { useEffect, useState } from "react";
 import ShareButton from "../components/ShareButton";

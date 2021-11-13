@@ -9,9 +9,9 @@ import "../styles/ContactPage.css";
 import "../styles/List.css";
 import "../styles/ReferrerPage.css";
 import "../styles/Input.css";
-import "../styles/CountrySelect.css"
-import "../styles/ReferralLink.css"
-import "../styles/ShareBtn.css"
+import "../styles/CountrySelect.css";
+import "../styles/ReferralLink.css";
+import "../styles/ShareBtn.css";
 import { StateProvider } from "../lib/store";
 
 /*Main App File - This is not a page*/

@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { store } from "../lib/store";
 import GenerateCourses from "../components/GenerateCourses";
 import CountrySelect from "./CountrySelect";
+
 export default function SignUp() {
   const router = useRouter();
   const { state } = useContext(store);
@@ -38,7 +39,7 @@ export default function SignUp() {
     } else {
       setMessage("");
       const courses = GenerateCourses(state.selected);
-      
+
       try {
         const promise = await fetch("/api/create", {
           method: "POST",
