@@ -19,6 +19,7 @@ export default function Page({ children, refLink = true }) {
     <div className="page">
       <Head>
         <title>{title}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="al:web:url" content={url} />
         <meta property="og:title" content={title} />
         <meta property="og:url" content={url} />
@@ -26,6 +27,8 @@ export default function Page({ children, refLink = true }) {
         <meta property="og:site_name" content={site_name} />
         <meta property="og:image" content={icon} />
         <meta name="og:description" content={description} />
+        <meta name="description" content={description} />
+        <meta name="robots" content="index, follow" />
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@lernen" />
@@ -40,6 +43,7 @@ export default function Page({ children, refLink = true }) {
 
         <link rel="image_src" href={icon} />
         <link rel="icon" href={icon} />
+        <link rel="canonical" href={url} />
 
         <link rel="apple-touch-icon" href={favicon} />
         <link rel="shortcut icon" href={favicon} type="image/x-icon" />
