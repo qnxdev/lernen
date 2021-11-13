@@ -1,12 +1,11 @@
 import Page from "../components/Page";
+import Input from "../components/Input";
 import Button from "../components/Button";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ShareButton from "../components/ShareButton";
-import { store } from "../lib/store";
-import ReferrerRegister from "../components/ReferrerRegister";
 import firebaseAdminInit from "../lib/firebaseAdmin";
 import { getFirestore } from "firebase-admin/firestore";
-
+import ReferrerRegister from "../components/ReferrerRegister";
 
 export const getServerSideProps = async ({ req }) => {
   const LERNEN_RD = req.cookies.LERNEN_RD;
@@ -24,24 +23,15 @@ export const getServerSideProps = async ({ req }) => {
   return { props: { referrer: { id: null } } };
 };
 
-export default function RefererPage({ referrer = {} }) {
-  const { state, dispatch } = useContext(store);
-
-  function setReferrer(data) {
-    dispatch({
-      type: "referrer",
-      payload: data,
-    });
-  }
-
-  useEffect(() => setReferrer(referrer), []);
+export default function RefererPage({ referrer }) {
+  const [LoggedReferrer, setLoggedReferrer] = useState(referrer);
 
   return (
     <Page refLink={false}>
-      {state.referrer.id ? (
-        <DashBoard referrer={state.referrer} />
+      {LoggedReferrer.id ? (
+        <DashBoard referrer={LoggedReferrer} />
       ) : (
-        <ReferrerRegister setLoggedReferrer={setReferrer} />
+        <ReferrerRegister setLoggedReferrer={setLoggedReferrer} />
       )}
     </Page>
   );

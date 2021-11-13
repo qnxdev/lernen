@@ -7,25 +7,31 @@ import Link from "next/link";
 import Button from "../components/Button";
 import SignUp from "../components/SignUp";
 import Referlink from "../components/Referlink";
+import { useRouter } from "next/dist/client/router";
 
 export default function Home() {
   const { state, dispatch } = useContext(store);
+  const { referralId, selected } = state;
   const [showSignUp, setSignUp] = useState(false);
+  const router = useRouter();
 
   useEffect(async () => {
     if (!state.sentAnalytics) {
       //await Realtime();
       dispatch({ type: "analytics", payload: true });
     }
+    return setTimeout(() => setSignUp(true), 2000);
   }, []);
 
   useEffect(() => {
-    return setTimeout(() => setSignUp(true), 2000);
-  }, []);
+    if (router.query.ref && !referralId) {
+      dispatch({ type: "referral-id", payload: router.query.ref });
+    }
+  });
+
   return (
     <div className="app">
       <Page>
-  
         <ListSection
           className="bundles"
           items={bundles}
@@ -39,7 +45,7 @@ export default function Home() {
           text="Customise your learning experience.."
         />
         <div className={`skipper ${showSignUp ? "show-skipper" : ""}`}>
-          {!state.referrer.id && <Referlink />}
+          <Referlink />
           <div className="skip-content">
             <div className="close">
               <button className="button" onClick={() => setSignUp(false)}>
@@ -50,7 +56,7 @@ export default function Home() {
           </div>
         </div>
       </Page>
-      {state.selected.length !== 0 && (
+      {selected.length !== 0 && (
         <div className="popup w100 flex">
           {/* <p>selected: {state.selected.map(id => {
             return state.

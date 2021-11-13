@@ -103,7 +103,7 @@ export default function Page({ children, refLink = true }) {
           </Link>
         </div>
       </header>
-      {refLink && !state.referrer.id && <Referlink />}
+      {refLink && <Referlink />}
       <main className="main">{children}</main>
 
       <footer className="footer flex">
