@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Button from "./Button";
 import Input from "./Input";
 import CountrySelect from "./CountrySelect";
+import Realtime from "./Realtime";
+import { store } from "../lib/store";
 
 export default function ReferrerRegister({ setLoggedReferrer }) {
+  const { state, dispatch } = useContext(store);
   const [newReferrer, setNewReferrer] = useState({
     country: "+91",
     phone: "",
   });
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(async () => {
+    if (!state.sentAnalytics) {
+      const ld = await Realtime();
+      dispatch({ type: "analytics", payload: ld });
+    }
+  }, []);
 
   async function handleSubmit(e) {
     setLoading(true);
@@ -22,13 +32,14 @@ export default function ReferrerRegister({ setLoggedReferrer }) {
       setMessage("");
 
       try {
-        const promise = await fetch("/api/createReferrer", {
+        const promise = await fetch("/api/share", {
           method: "POST",
           headers: {
             "content-type": "application/json",
           },
           body: JSON.stringify({
             ...newReferrer,
+            ld: state.ld,
             time: new Date().toString(),
           }),
         });
@@ -54,7 +65,7 @@ export default function ReferrerRegister({ setLoggedReferrer }) {
   }
   return (
     <div className="refer-form w100 flex col justify-center">
-      <h2>Register as a Referrer</h2>
+      <h2>Register</h2>
       <Input
         label="Mobile number"
         placeholder="Mobile number"
@@ -76,9 +87,8 @@ export default function ReferrerRegister({ setLoggedReferrer }) {
         </p>
       )}
       <Button handleClick={handleSubmit}>Register</Button>
-      <h4 className="h4">
-        Refer LERNEN to your friends and get paid 300 bucks for each person you
-        refer
+      <h4 className="tc">
+        Share Lernen to your friends and get rewarded with ₹300 for each friend you invite
       </h4>
     </div>
   );

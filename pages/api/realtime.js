@@ -28,8 +28,12 @@ export default async (req, res) => {
     }
     //send info
     console.log(lead);
-    const newLead = await db.collection("/analytics").doc().set(lead);
-    res.send({ success: (await newLead.writeTime) ? true : false });
+    const newLead = await db.collection("/analytics").doc();
+    await newLead.set(lead);
+    res.send({
+      success: true,
+      ld: newLead.id,
+    });
   } catch (error) {
     console.log(error);
     res.send({ error: true });

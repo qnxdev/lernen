@@ -11,18 +11,30 @@ export default async (req, res) => {
     try {
       const firebase = firebaseAdminInit();
       const db = getFirestore(firebase);
+      let referrer = {};
 
       if (country && phone && time) {
-        const newId = nanoid();
-        const AddingReferrer = {
-          id: newId,
-          country,
-          phone: country + phone,
-          time,
-        };
-        const newReferrer = await db.collection("/referrers").doc();
-        await newReferrer.set(AddingReferrer);
-        res.send(AddingReferrer);
+        const exists = await db
+          .collection("referrers")
+          .where("country", "==", country)
+          .where("phone", "==", phone)
+          .get();
+        if (exists.empty) {
+          referrer = {
+            id: nanoid(),
+            country,
+            phone,
+            time,
+          };
+          const newReferrer = await db.collection("/referrers").doc();
+          await newReferrer.set(AddingReferrer);
+        } else {
+          await exists.forEach((doc) => {
+            referrer = doc.data();
+          });
+        }
+        referrer.referrals = [];
+        res.send(referrer);
       } else {
         res.send({ error: true, check: true });
       }

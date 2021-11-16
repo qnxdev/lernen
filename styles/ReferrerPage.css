@@ -12,7 +12,9 @@
 .refer-form button {
   margin-top: 20px;
 }
-
+.ref-page .balance{
+  font-size: 2.5rem;
+}
 .ref-page {
   padding: 0px 20px;
   flex-direction: row;
@@ -55,17 +57,22 @@
 .ref-page input {
   color: var(--theme1);
   font-size: 1.1rem;
-  padding: 0.7rem 1.5rem;
+  padding: 0.7rem 0.5rem;
   margin: 5px 0px;
   border-radius: 30px;
-  border: 2px solid var(--theme1);
+  border: 3px solid var(--theme1);
   background-color: transparent;
-  width: 100%;
+  width: 120%;
   font-weight: bold;
 }
 
 .label {
   font-size: 1.2rem;
+}
+
+.earnings p{
+  color: #777;
+  font-weight: 700;
 }
 
 @media (max-width: 500px) {
@@ -86,5 +93,14 @@
   .share-wrap {
     border-right: none;
     border-bottom: 2px solid var(--theme1);
+  }
+}
+
+@media (max-width: 390px) {
+  .ref-page .balance{
+    font-size: 2rem;
+  }
+  .ref-page input {
+    font-size: 0.9rem;
   }
 }

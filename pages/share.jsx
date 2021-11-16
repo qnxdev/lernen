@@ -11,13 +11,23 @@ export const getServerSideProps = async ({ req }) => {
   if (LERNEN_RD) {
     const firebase = await firebaseAdminInit();
     const db = await getFirestore(firebase);
+    let data;
     const response = await db
       .collection("referrers")
       .where("id", "==", LERNEN_RD)
       .get();
-    let data;
+    const referrals = await db
+      .collection("users")
+      .where("ref", "==", LERNEN_RD)
+      .get();
     await response.forEach((doc) => (data = doc.data()));
-    if (data) return { props: { referrer: data } };
+    if (data) {
+      data.referrals = [];
+      if (!referrals.empty) {
+        await referrals.forEach((doc) => data.referrals.push(doc.data().name));
+      }
+      return { props: { referrer: data } };
+    }
   }
   return { props: { referrer: { id: null } } };
 };
@@ -46,8 +56,8 @@ const DashBoard = ({ referrer }) => {
 
   const refUrl = `https://lernen.vercel.app?ref=${referrer.id}`;
 
-  const ShareTitle = `Lernen`;
-  const ShareText = `Hey Lernen is the best \n`;
+  const ShareTitle = `Lernen - Web Development Classes`;
+  const ShareText = `With just 2 hours a day get a new income. Try free for first 3 days and Learn Web Development. \n`;
 
   const shareData = {
     title: ShareTitle,
@@ -60,7 +70,7 @@ const DashBoard = ({ referrer }) => {
       navigator.clipboard
         .writeText(refUrl)
         .then(() => {
-          console.log("succesfull copy");
+          console.log("&copy;");
           setCopyStatus(true);
           setTimeout(() => setCopyStatus(false), 1000);
         })
@@ -74,17 +84,21 @@ const DashBoard = ({ referrer }) => {
       .then(() => {
         console.log("Thank you For Sharing");
       })
-      .catch(console.error);
+      .catch(() => {
+        console.log("Please check permissions");
+      });
   }
 
   return (
     <div className="ref-page flex">
       <div className="share-wrap w100 flex justify-center col">
-        <h2 className="margin0 tc w100 header">Dashboard</h2>
         <div className="w100 flex justify-center col content">
-          <h2 className="margin0">Earned : $500</h2>
+          <h2 className="balance">
+            Balance : ₹
+            {referrer.referrals ? referrer.referrals.length * 300 : 0}
+          </h2>
           {/* <Input label="Your Referrel Link" value={refUrl} readOnly={true} /> */}
-          <h2 className="label">Your Referrel Link</h2>
+          <h2 className="label">Share Your Unique Link</h2>
           <div className="copy-btn flex ">
             <input
               className="w100 tc"
@@ -93,7 +107,7 @@ const DashBoard = ({ referrer }) => {
               value={refUrl}
             />
             <Button handleClick={CopyText}>
-              {copyStatus ? "Copied" : "Copy"}
+              {copyStatus ? "Link Copied" : "Copy Link"}
             </Button>
           </div>
 
@@ -101,7 +115,7 @@ const DashBoard = ({ referrer }) => {
             <Button handleClick={WebShare}>Share Lernen And Earn</Button>
           )}
           <ShareButton
-            name="FaceBook"
+            name="Facebook"
             link={`https://www.facebook.com/sharer/sharer.php?u=${refUrl}&quote=${ShareText}`}
             color="#2d88ff"
           />
@@ -118,8 +132,12 @@ const DashBoard = ({ referrer }) => {
         </div>
       </div>
       <div className="earn-wrap w100 flex justify-center col light">
-        <h2 className="tc w100 margin0 header">Your Referral Earnigs</h2>
-        <div className="earnigs content"></div>
+        <h2 className="tc w100 margin0 header">Your Referrals</h2>
+        <div className="earnings">
+          {referrer.referrals && referrer.referrals.length > 0
+            ? referrer.referrals.map((i) => <p>{i}</p>)
+            : <p>Nothing here. Start inviting your friends.</p> }
+        </div>
       </div>
     </div>
   );

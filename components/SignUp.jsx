@@ -18,14 +18,10 @@ export default function SignUp() {
     country: "+91",
     courses: [],
   });
-  //console.log(router.query);
+  
   const onInput = (e, prop) => {
     setUser({ ...user, [prop]: e.target.value });
   };
-
-  // useEffect(() => {
-  //   console.log(user);
-  // }, [user]);
 
   const onSubmit = async () => {
     setLoading(true);
@@ -48,8 +44,10 @@ export default function SignUp() {
           },
           body: JSON.stringify({
             ...user,
+            ld: state.ld,
             courses: courses,
             time: new Date().toString(),
+            ref:state.rd
           }),
         });
         const data = await promise.json();
@@ -57,7 +55,7 @@ export default function SignUp() {
           //set cookie
           try {
             if (document) {
-              document.cookie = "LERNEN_LD=" + data.id + "; path=/";
+              document.cookie = "LERNEN_LD=" + data.id;
             }
           } catch (error) {
             console.log("Please enable cookies.");
