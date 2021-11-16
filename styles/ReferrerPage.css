@@ -12,7 +12,7 @@
 .refer-form button {
   margin-top: 20px;
 }
-.ref-page .balance{
+.ref-page .balance {
   font-size: 2.5rem;
 }
 .ref-page {
@@ -40,13 +40,15 @@
 }
 
 .copy-btn button {
-  margin-left: 10px;
-  width: 50%;
+  margin-top: 15px;
+  width: 100%;
+  margin-left: 0px;
 }
 
 .copy-btn {
   width: 400px;
   max-width: 100%;
+  flex-direction: column;
 }
 
 .ref-page button:nth-child(4) {
@@ -64,26 +66,16 @@
   background-color: transparent;
   width: 120%;
   font-weight: bold;
+  max-width: 110%;
 }
 
 .label {
   font-size: 1.2rem;
 }
 
-.earnings p{
+.earnings p {
   color: #777;
   font-weight: 700;
-}
-
-@media (max-width: 500px) {
-  .copy-btn {
-    flex-direction: column;
-  }
-  .copy-btn button {
-    margin-top: 15px;
-    width: 100%;
-    margin-left: 0px;
-  }
 }
 
 @media (max-width: 900px) {
@@ -97,7 +89,7 @@
 }
 
 @media (max-width: 390px) {
-  .ref-page .balance{
+  .ref-page .balance {
     font-size: 2rem;
   }
   .ref-page input {

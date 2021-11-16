@@ -27,7 +27,7 @@ export default async (req, res) => {
             time,
           };
           const newReferrer = await db.collection("/referrers").doc();
-          await newReferrer.set(AddingReferrer);
+          await newReferrer.set(referrer);
         } else {
           await exists.forEach((doc) => {
             referrer = doc.data();

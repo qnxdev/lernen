@@ -51,7 +51,7 @@ export default function Page({ children, refLink = true }) {
 
       {/* MOUSE fLOW */}
 
-      {/* <Script
+      <Script
         type="text/javascript"
         defer={true}
         dangerouslySetInnerHTML={{
@@ -64,11 +64,11 @@ export default function Page({ children, refLink = true }) {
                     document.getElementsByTagName("head")[0].appendChild(mf);
                   })();`,
         }}
-      /> */}
+      />
 
       {/* HOTJAR */}
 
-      {/* <Script
+      <Script
         type="text/javascript"
         defer={true}
         dangerouslySetInnerHTML={{
@@ -81,7 +81,7 @@ export default function Page({ children, refLink = true }) {
                   a.appendChild(r);
               })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
         }}
-      /> */}
+      />
 
       <header className="flex stretch">
         <Link href="/">
