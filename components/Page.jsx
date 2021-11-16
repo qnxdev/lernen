@@ -28,7 +28,7 @@ export default function Page({ children, refLink = true }) {
         <meta property="og:image" content={icon} />
         <meta name="og:description" content={description} />
         <meta name="description" content={description} />
-        <meta name="robots" content="index, follow" />
+        {/* <meta name="robots" content="index, follow" /> */}
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@lernen" />
