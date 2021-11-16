@@ -2,6 +2,7 @@ import Page from "../components/Page";
 import List from "../components/List";
 import { bundles, techs } from "../lib/lists";
 import SignUp from "../components/SignUp";
+
 export default function SignUpPage() {
   return (
     <Page>
