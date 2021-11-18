@@ -23,6 +23,7 @@ export default function SignUp() {
   const onInput = (e, prop) => {
     setUser({ ...user, [prop]: e.target.value });
   };
+  console.log(state);
 
   const onSubmit = async () => {
     setLoading(true);
@@ -36,7 +37,7 @@ export default function SignUp() {
     } else {
       setMessage("");
       const courses = GenerateCourses(state.selected);
-
+      console.log(state);
       try {
         const promise = await fetch("/api/create", {
           method: "POST",
