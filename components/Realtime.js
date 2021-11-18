@@ -1,13 +1,10 @@
+import { parseCookies, setCookie } from "nookies";
+
 export default async function Realtime() {
-  if (document && document.cookie) {
-    try {
-      let AD = "";
-    AD = document.cookie
-      .split("; ")
-      .find((i) => i.split("=")[0] == "LERNEN_AD" && i.split("=")[1] != "")
-      .split("=")[1];
-    if (AD != "") {
-      return AD;
+  try {
+    const cookies = parseCookies();
+    if (cookies["LERNEN_AD"] && cookies["LERNEN_AD"].length > 0) {
+      return cookies["LERNEN_AD"];
     } else {
       let ua = {};
       if (navigator) {
@@ -62,20 +59,19 @@ export default async function Realtime() {
         const { success, ld } = await promise.json();
         if (success) {
           console.log("Realtime request complete.");
-          if (document) {
-            document.cookie = "LERNEN_AD=" + ld;
-          }
+          setCookie(null, "LERNEN_AD", ld);
           return ld;
         } else {
           console.log("Realtime update failed.");
         }
       } catch (error) {
+        console.log(error);
         console.log("Realtime request failed.");
       }
     }
-    } catch (error) {
-      console.log("Realtime request failed.");
-    }
+  } catch (error) {
+    console.log(error);
+    console.log("Realtime request failed.");
   }
   return null;
 }

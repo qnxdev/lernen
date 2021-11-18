@@ -4,6 +4,7 @@ import Input from "./Input";
 import CountrySelect from "./CountrySelect";
 import Realtime from "./Realtime";
 import { store } from "../lib/store";
+import { setCookie } from "nookies";
 
 export default function ReferrerRegister({ setLoggedReferrer }) {
   const { state, dispatch } = useContext(store);
@@ -47,9 +48,7 @@ export default function ReferrerRegister({ setLoggedReferrer }) {
         if (data.id) {
           //set cookie
           try {
-            if (document) {
-              document.cookie = "LERNEN_RD=" + data.id + "; path=/;";
-            }
+            setCookie(null, "LERNEN_RD", data.id);
           } catch (error) {
             alert("Please enable cookies.");
           }
@@ -88,7 +87,8 @@ export default function ReferrerRegister({ setLoggedReferrer }) {
       )}
       <Button handleClick={handleSubmit}>Register</Button>
       <h4 className="tc">
-        Share Lernen to your friends and get rewarded with ₹300 for each friend you invite
+        Share Lernen to your friends and get rewarded with ₹300 for each friend
+        you invite
       </h4>
     </div>
   );

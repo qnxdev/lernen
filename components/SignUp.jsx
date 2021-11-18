@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { store } from "../lib/store";
 import GenerateCourses from "../components/GenerateCourses";
 import CountrySelect from "./CountrySelect";
+import { setCookie } from "nookies";
 
 export default function SignUp() {
   const router = useRouter();
@@ -18,7 +19,7 @@ export default function SignUp() {
     country: "+91",
     courses: [],
   });
-  
+
   const onInput = (e, prop) => {
     setUser({ ...user, [prop]: e.target.value });
   };
@@ -47,16 +48,14 @@ export default function SignUp() {
             ld: state.ld,
             courses: courses,
             time: new Date().toString(),
-            ref:state.rd
+            ref: state.rd,
           }),
         });
         const data = await promise.json();
         if (data.id) {
           //set cookie
           try {
-            if (document) {
-              document.cookie = "LERNEN_LD=" + data.id;
-            }
+            setCookie(null, "LERNEN_LD", data.id);
           } catch (error) {
             console.log("Please enable cookies.");
           }

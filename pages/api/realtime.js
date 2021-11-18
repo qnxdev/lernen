@@ -27,7 +27,6 @@ export default async (req, res) => {
       lead = { ...lead, user_agent: JSON.parse(decodeURIComponent(ua)) };
     }
     //send info
-    console.log(lead);
     const newLead = await db.collection("/analytics").doc();
     await newLead.set(lead);
     res.send({
