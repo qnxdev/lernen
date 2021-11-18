@@ -22,13 +22,13 @@ export default function Home() {
       dispatch({ type: "analytics", payload: ld });
     }
     return setTimeout(() => setSignUp(true), 2000);
-  });
+  },[]);
 
   useEffect(() => {
     if (router.query.ref && !rd) {
       dispatch({ type: "referral-id", payload: router.query.ref });
     }
-  });
+  },[]);
 
   return (
     <div className="app">
