@@ -60,9 +60,6 @@ export default function Home() {
       </Page>
       {selected.length !== 0 && (
         <div className="popup w100 flex">
-          {/* <p>selected: {state.selected.map(id => {
-            return state.
-          })}</p> */}
 
           <Link href="/signup">
             <a>
