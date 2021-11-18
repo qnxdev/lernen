@@ -9,26 +9,27 @@ import SignUp from "../components/SignUp";
 import Referlink from "../components/Referlink";
 import { useRouter } from "next/dist/client/router";
 import Realtime from "../components/Realtime";
+import { setCookie } from "nookies";
 
 export default function Home() {
   const { state, dispatch } = useContext(store);
   const { rd, selected } = state;
   const [showSignUp, setSignUp] = useState(false);
   const router = useRouter();
-
   useEffect(async () => {
     if (!state.sentAnalytics) {
       const ld = await Realtime();
       dispatch({ type: "analytics", payload: ld });
     }
     return setTimeout(() => setSignUp(true), 2000);
-  },[]);
+  }, []);
 
   useEffect(() => {
     if (router.query.ref && !rd) {
       dispatch({ type: "referral-id", payload: router.query.ref });
+      setCookie(null, "LERNEN_REF", router.query.ref);
     }
-  },[]);
+  }, [router.query]);
 
   return (
     <div className="app">
